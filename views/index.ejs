@@ -10,119 +10,17 @@
 	
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
-	
-	<script src="js/stats.js"></script>
-	<script src="js/WebGL.js"></script>
-	<script src="js/three.js"></script>
 </head>
 <body class="vh-100 bg-light">
+	<!-- 메인 페이지입니다. -->
 	<div class="container py-3">
 		<h1>Hello, world!</h1>
+		<a id="register" href='/register'>register</a>
 	</div>
-	<div id="mycanvas"></div>
-
+	<!--
+		register를 누르면 register 화면으로 넘어갈 예정
+	-->
 	<script>
-		// canvas
-		var mycanvas = document.getElementById('mycanvas');
-
-		// for display fps
-		var stats;
-
-		// three.js
-		var scene;
-		var camera;
-		var renderer;
-		var geometry;
-		var material;
-		var cube;
-
-		// elements to animate
-		var ar_animate1 = [];
-
-		// init
-		function initWebGL(WebGLVersion) {
-			// create scene and camera 
-			scene = new THREE.Scene();
-			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-			camera.position.z = 5;
-
-			// create renderer
-			if (WebGLVersion == 1) {
-				renderer = new THREE.WebGLRenderer();
-			} else if (WebGLVersion == 2) {
-				var canvas = document.createElement( 'canvas' );
-				var context = canvas.getContext( 'webgl2', { alpha: false } );
-				renderer = new THREE.WebGLRenderer( { canvas: canvas, context: context } );
-			}
-			renderer.setSize( window.innerWidth, window.innerHeight );			
-			mycanvas.appendChild( renderer.domElement );
-
-			// display fps
-			stats = new Stats();
-			stats.setMode(0);
-			stats.domElement.style.position = 'absolute';
-			stats.domElement.style.left = mycanvas.offsetLeft + 'px';
-			stats.domElement.style.top = mycanvas.offsetTop + 'px';
-			mycanvas.appendChild( stats.domElement );
-		}
-
-		// add point-light
-		function addLight() {
-			var light = new THREE.PointLight( 0xffffff, 1, 0, 2 );
-			light.position.set( 0, 0, 5 );
-			scene.add( light );
-		}
-
-		// animate elements (ratation)
-		function animate1() {
-			requestAnimationFrame( animate1 );
-			for (var i = 0; i < ar_animate1.length; i++) {
-				ar_animate1[i].rotation.x += 0.01;
-				ar_animate1[i].rotation.y += 0.01;
-			}
-			render();
-		}
-
-		// render
-		function render() {
-			stats.update();
-			renderer.render( scene, camera );
-		}
-
-		// add a cube
-		function addCube() {
-			geometry = new THREE.BoxGeometry( 1, 1, 1 );
-
-			//material = new THREE.MeshBasicMaterial( { color: 0x009900 } );
-			material = new THREE.MeshPhongMaterial ( { color: 0x00ff00 } );
-			//material = new THREE.MeshLambertMaterial( { color: 0x009900 } );
-
-			cube = new THREE.Mesh( geometry, material );
-
-			scene.add( cube );
-			ar_animate1.push(cube);
-		}
-
-		// start!
-		if ( WEBGL.isWebGL2Available() ) {
-			// Use WebGL 2
-			initWebGL(2);
-			addLight();
-			addCube();
-			animate1();
-			render();
-		} else if ( WEBGL.isWebGLAvailable() ) {
-			alert('This browser can\'t support WebGL 2.');
-			// Use WebGL 1
-			initWebGL(1);
-			addLight();
-			addCube();
-			animate1();
-			render();
-		} else {
-			// Error
-			alert('This browser can\'t support WebGL.');
-		}
 	</script>
 </body>
 </html>

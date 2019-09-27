@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request');
-const selfRequest = require('./selfRequest');
+const register = require('./core/register');
+const selfRequest = require('./core/selfRequest');
 const app = express();
 
 var server = require('http').createServer(app);
@@ -13,12 +14,21 @@ app.locals.pretty = true;
 
 selfRequest.init('https://nodementia.herokuapp.com/', app);
 
+// start
+server.listen(port);
+console.log(`listen now with port:${port}`);
+
 // /
 app.get('/', (req, res) => {
 	console.log('/');
 	res.render('index');
 });
 
-// start
-server.listen(port);
-console.log(`listen now with port:${port}`);
+// /register
+app.get('/register', (req, res) => {
+	console.log('/register');
+	res.render('register');
+});
+
+// below codes is for test
+register.register();
