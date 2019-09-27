@@ -12,11 +12,19 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 app.locals.pretty = true;
 
-selfRequest.init('https://nodementia.herokuapp.com/', app);
+app.use(express.urlencoded());
+app.use(express.json());
 
 // start
 server.listen(port);
 console.log(`listen now with port:${port}`);
+
+app.all('*', (req, res, next) => {
+	let protocol = req.headers['x-forwarded-proto'] || req.protocol;
+	let from = `${protocol}://${req.hostname}${req.url}`;
+	console.log(`[${req.method} ${req.ip}] ${from}`);
+	next();
+});
 
 // /
 app.get('/', (req, res) => {
@@ -30,11 +38,17 @@ app.get('/register', (req, res) => {
 	res.render('register');
 });
 
+// /register
+app.get(/id-*/, (req, res) => {
+	console.log('/id');
+	res.render('index');
+});
 // below codes is for test
-//register.register();
 
 // /register
 app.post('/register', (req, res) => {
 	console.log('[POST] /register');
 	register.register(req, res);
 });
+
+selfRequest.init('https://nodementia.herokuapp.com/', app);
