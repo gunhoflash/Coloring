@@ -32,7 +32,7 @@ User = data => {
 		host_age:         data.host_age,
 		host_sex:         data.host_sex,
 		host_email:       data.host_email,
-		host_relatonship: data.host_relatonship,
+		host_relationship: data.host_relationship,
 
 		target_name:      data.target_name,
 		target_age:       data.target_age,
