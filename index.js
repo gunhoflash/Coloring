@@ -31,4 +31,10 @@ app.get('/register', (req, res) => {
 });
 
 // below codes is for test
-register.register();
+//register.register();
+
+// /register
+app.post('/register', (req, res) => {
+	console.log('[POST] /register');
+	register.register(req, res);
+});
