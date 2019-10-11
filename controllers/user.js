@@ -47,15 +47,18 @@ exports.signup = (req, res) => {
 	});
 };
 
-exports.targetLogin = (hashed, res) => {
-	console.log('targetLogin');
+exports.getUser = (hashed, res) => {
+	console.log('getUser');
 	return User
 	.findOne({
 		hashed: hashed
 	})
 	.then(user => {
-		console.log(`targetLogin success: ${user.hashed}`);
-		return JSON.stringify(user);
+		if (user)
+			console.log(`getUser success: ${hashed}`);
+		else
+			console.log(`getUser fail: ${hashed}`);
+		return user;
 	})
 	.catch(console.log);
 };

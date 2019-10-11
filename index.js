@@ -44,11 +44,13 @@ app.all('*', (req, res, next) => {
 	console.log(`[${req.method} ${req.ip}] ${from}`);
 	next();
 });
+app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });
+app.use((req, res, next) => { res.status(500).render('error/error', { errorcode: 500 }); });
 
 // /
 app.get('/', (req, res) => {
 	console.log('/');
-	res.render('index', {user: '{}'});
+	res.render('index', {user: JSON.stringify(null)});
 });
 
 // /register
@@ -57,13 +59,16 @@ app.get('/register', (req, res) => {
 	res.render('register');
 });
 
-// /register
+// login with hashed url
 app.get('/id/:hashed', (req, res) => {
 	console.log(req.params.hashed);
 	UserController
-	.targetLogin(req.params.hashed, res)
+	.getUser(req.params.hashed, res)
 	.then(user => {
-		res.render('index', {user: user});
+		if (!user)
+			res.redirect('/');
+		else
+			res.render('index', {user: JSON.stringify(user)});
 	});
 });
 // below codes is for test

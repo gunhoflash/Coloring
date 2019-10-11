@@ -22,7 +22,7 @@
 	-->
 	<script>
 		var user = <%- user %>;
-		if (!user.target_name) {
+		if (!user) {
 			// not login
 			alert(`hello stranger!`);
 		} else {
