@@ -54,9 +54,8 @@ exports.targetLogin = (hashed, res) => {
 		hashed: hashed
 	})
 	.then(user => {
-		console.log('targetLogin success');
-		console.log(user);
-		return user;
+		console.log(`targetLogin success: ${user.hashed}`);
+		return JSON.stringify(user);
 	})
 	.catch(console.log);
 };

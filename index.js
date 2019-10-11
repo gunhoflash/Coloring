@@ -60,8 +60,11 @@ app.get('/register', (req, res) => {
 // /register
 app.get('/id/:hashed', (req, res) => {
 	console.log(req.params.hashed);
-	let user = UserController.targetLogin(req.params.hashed, res);
-	res.render('index', {user: user});
+	UserController
+	.targetLogin(req.params.hashed, res)
+	.then(user => {
+		res.render('index', {user: user});
+	});
 });
 // below codes is for test
 
