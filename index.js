@@ -2,6 +2,10 @@ const express = require('express');
 const request = require('request');
 const mongoose = require('mongoose');
 
+/* controller */
+const UserController = require('./controllers/user');
+
+/* core (will be deprecated) */
 const register = require('./core/register');
 const selfRequest = require('./core/selfRequest');
 
@@ -54,16 +58,17 @@ app.get('/register', (req, res) => {
 });
 
 // /register
-app.get(/id-*/, (req, res) => {
-	console.log('/id');
-	res.render('index');
+app.get('/id/:hashed', (req, res) => {
+	console.log(req.params.hashed);
+	let user = UserController.targetLogin(req.params.hashed, res);
+	res.render('index', {user: user});
 });
 // below codes is for test
 
 // /register
 app.post('/register', (req, res) => {
 	console.log('[POST] /register');
-	register.register(req, res);
+	UserController.signup(req, res);
 });
 
 selfRequest.init('https://nodementia.herokuapp.com/', app);

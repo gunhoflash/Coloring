@@ -5,8 +5,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+
+	<script src="js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-	
+	<script>
+		$.ajax({
+			method: 'POST',
+			url: '/register',
+			data: {
+				host_name         : 'host_name',
+				host_age          : 24,
+				host_sex          : 'host_sex',
+				host_email        : 'host_email',
+				host_relationship : 'host_relationship',
+				target_name       : 'target_name',
+				target_age        : 24,
+				target_sex        : 'target_sex',
+				target_grade      : 'target_grade',
+			},
+			success: function (result) {
+				console.log(result);
+			}
+		});
+	</script>
 </body>
 </html>
