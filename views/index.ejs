@@ -22,7 +22,13 @@
 	-->
 	<script>
 		var user = <%- user %>;
-		alert(`hello ${user.target_name}!`);
+		if (!user) {
+			// not login
+			alert(`hello stranger!`);
+		} else {
+			// login
+			alert(`hello ${user.target_name}!`);
+		}
 	</script>
 </body>
 </html>
