@@ -48,7 +48,7 @@ app.all('*', (req, res, next) => {
 // /
 app.get('/', (req, res) => {
 	console.log('/');
-	res.render('index');
+	res.render('index', {user: '{}'});
 });
 
 // /register
