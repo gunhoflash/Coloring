@@ -21,13 +21,13 @@
 		register를 누르면 register 화면으로 넘어갈 예정
 	-->
 	<script>
-		var user = <%- user %>;
-		if (!user) {
+		var target = <%- target %>;
+		if (!target) {
 			// not login
 			alert(`hello stranger!`);
 		} else {
 			// login
-			alert(`hello ${user.target_name}!`);
+			alert(`hello ${target.name}!`);
 		}
 	</script>
 </body>

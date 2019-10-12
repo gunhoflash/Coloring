@@ -3,7 +3,8 @@ const request = require('request');
 const mongoose = require('mongoose');
 
 /* controller */
-const UserController = require('./controllers/user');
+const HostController = require('./controllers/host');
+const TargetController = require('./controllers/target');
 
 /* core (will be deprecated) */
 const register = require('./core/register');
@@ -44,13 +45,15 @@ app.all('*', (req, res, next) => {
 	console.log(`[${req.method} ${req.ip}] ${from}`);
 	next();
 });
-app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });
-app.use((req, res, next) => { res.status(500).render('error/error', { errorcode: 500 }); });
+
+/*
+	ROUTE
+*/
 
 // /
 app.get('/', (req, res) => {
 	console.log('/');
-	res.render('index', {user: JSON.stringify(null)});
+	res.render('index', {target: JSON.stringify(null)});
 });
 
 // /register
@@ -62,21 +65,32 @@ app.get('/register', (req, res) => {
 // login with hashed url
 app.get('/id/:hashed', (req, res) => {
 	console.log(req.params.hashed);
-	UserController
-	.getUser(req.params.hashed, res)
-	.then(user => {
-		if (!user)
+	TargetController
+	.getTarget(req.params.hashed)
+	.then(target => {
+		if (!target)
 			res.redirect('/');
 		else
-			res.render('index', {user: JSON.stringify(user)});
+			res.render('index', {target: JSON.stringify(target)});
 	});
 });
-// below codes is for test
 
-// /register
-app.post('/register', (req, res) => {
-	console.log('[POST] /register');
-	UserController.signup(req, res);
+/*
+	POST FUNCTIONS
+*/
+
+// create host
+app.post('/createHost', (req, res) => {
+	HostController.createHost(req, res);
 });
+// register target
+app.post('/registerTarget', (req, res) => {
+	HostController.registerTarget(req, res);
+});
+
+app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });
+app.use((req, res, next) => { res.status(500).render('error/error', { errorcode: 500 }); });
+
+// below codes is for test
 
 selfRequest.init('https://nodementia.herokuapp.com/', app);

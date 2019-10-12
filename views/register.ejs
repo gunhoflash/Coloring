@@ -10,24 +10,38 @@
 </head>
 <body>
 	<script>
-		$.ajax({
-			method: 'POST',
-			url: '/register',
-			data: {
-				host_name         : 'host_name',
-				host_age          : 24,
-				host_sex          : 'host_sex',
-				host_email        : 'host_email',
-				host_relationship : 'host_relationship',
-				target_name       : 'target_name',
-				target_age        : 24,
-				target_sex        : 'target_sex',
-				target_grade      : 'target_grade',
-			},
-			success: function (result) {
-				console.log(result);
-			}
-		});
+		function createHost() {
+			$.ajax({
+				method: 'POST',
+				url: '/createHost',
+				data: {
+					name  : 'name',
+					age   : 24,
+					sex   : 'sex',
+					email : 'email',
+				},
+				success: function (result) {
+					console.log(result);
+				}
+			});
+		}
+
+		function registerTarget() {
+			$.ajax({
+				method: 'POST',
+				url: '/registerTarget',
+				data: {
+					email : 'email',
+					name  : 'name',
+					age   : 24,
+					sex   : 'sex',
+					grade : 'grade'
+				},
+				success: function (result) {
+					console.log(result);
+				}
+			});
+		}
 	</script>
 </body>
 </html>
