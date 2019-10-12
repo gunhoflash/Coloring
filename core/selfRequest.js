@@ -1,35 +1,28 @@
-const SELF_REQUEST_JOSN = {	result: 1 };
-let intervalCount;
+const request = require('request');
+
+const SELF_REQUEST_JSON = {	result: 1 };
 let intervalObj;
 
-exports.init = (url, app) => {
+exports.init = app => {
 
-	// /selfRequest
+	// self-request
 	app.get('/selfRequest', (req, res) => {
-		console.log('/selfRequest');
-		res.json(SELF_REQUEST_JOSN);
+		res.json(SELF_REQUEST_JSON);
 	});
 
-	// /start
+	// start self-request
 	app.get('/selfRequestStart', (req, res) => {
-		console.log('/selfRequestStart');
-		intervalCount = 0;
 		intervalObj = setInterval(() => {
-			intervalCount++;
-			console.log(`Interval ${intervalCount}/180`);
-			if (intervalCount == 180)
-				clearInterval(intervalObj);
-			else
-				request(`${url}selfRequest`,  (error, response, body) => {});
-		}, 60000);
-		res.json(SELF_REQUEST_JOSN);
+			request(`https://nodementia.herokuapp.com/selfRequest`,  (error, response, body) => {});
+		}, 900000);
+		res.json(SELF_REQUEST_JSON);
 	});
 
-	// /end
+	// end self-request
 	app.get('/selfRequestEnd', (req, res) => {
-		console.log('/selfRequestEnd');
+		// TODO: allow only adminthis is only allowed
 		clearInterval(intervalObj);
-		res.json(SELF_REQUEST_JOSN);
+		res.json(SELF_REQUEST_JSON);
 	});
 
 };

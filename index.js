@@ -1,5 +1,4 @@
 const express = require('express');
-const request = require('request');
 const mongoose = require('mongoose');
 
 /* controller */
@@ -7,7 +6,6 @@ const HostController = require('./controllers/host');
 const TargetController = require('./controllers/target');
 
 /* core (will be deprecated) */
-const register = require('./core/register');
 const selfRequest = require('./core/selfRequest');
 
 const app = express();
@@ -19,12 +17,12 @@ var port = process.env.PORT || 5000;
 // connect mongoDB
 var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URI || 'mongodb://heroku_4g3dqxz6:8t4s8scntjm72gfbrrs0qp92qn@ds235401.mlab.com:35401/heroku_4g3dqxz6';
 mongoose
-	.connect(uristring, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
-	.then(() => console.log(`Succeeded connected to : ${uristring}`))
-	.catch(err => console.log(`ERROR connecting to : ${uristring}. ${err}`));
+.connect(uristring, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+})
+.then(() => console.log(`Succeeded connected to : ${uristring}`))
+.catch(err => console.log(`ERROR connecting to : ${uristring}. ${err}`));
 
 // settings
 app.set('view engine', 'ejs');
@@ -33,10 +31,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.locals.pretty = true;
-
-// start server
-server.listen(port);
-console.log(`listen now with port:${port}`);
 
 // middleware
 app.all('*', (req, res, next) => {
@@ -91,6 +85,9 @@ app.post('/registerTarget', (req, res) => {
 app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });
 app.use((req, res, next) => { res.status(500).render('error/error', { errorcode: 500 }); });
 
-// below codes is for test
+// start server
+server.listen(port);
+console.log(`listen now with port:${port}`);
 
-selfRequest.init('https://nodementia.herokuapp.com/', app);
+// self request
+selfRequest.init(app);

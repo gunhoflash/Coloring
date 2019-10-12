@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var crypto = require('crypto');
 
 var TargetSchema = new mongoose.Schema({
 	name: String,
