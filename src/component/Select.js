@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 import PropTypes from 'prop-types';
 
 import Bfore from './Bfore';
@@ -20,7 +19,7 @@ class Select extends React.Component{
           case 0:
           setTimeout(() => {
             this.props.nextPage();
-          }, 3000);
+          }, 300000);
             return <Logo/>;
           case 1:
               return <Start 

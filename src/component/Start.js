@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 import PropTypes from 'prop-types';
 import Bfore from './Bfore.js';
 import After from './After.js';

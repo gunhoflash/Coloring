@@ -1,0 +1,37 @@
+
+.Logo{
+    height: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    .logo_box{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background-image: url(../img/logo.png);    
+        background-size: 100%;
+        background-repeat: no-repeat;
+        .lp_title{
+            color: white;
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            animation: upAndDown 1.5s infinite;
+            margin:0;
+
+            @keyframes upAndDown {
+                0% {
+                    font-size: 5rem;
+                    text-shadow: 5px 5px 5px #0b3c58;
+                }
+                20% {
+                    font-size: 5.5rem;
+                    text-shadow: 8px 8px 5px #0b3c58;
+                }
+                100% {
+                    font-size: 5rem;
+                    text-shadow: 5px 5px 5px #0b3c58;
+                }
+              }
+        }
+    }
+}

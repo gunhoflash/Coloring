@@ -1,0 +1,26 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Do Hyeon',sans-serif;
+    margin:0;
+    padding:0;
+    background: transparent;
+}
+
+.component{
+    width: 100%;
+    background-color: white;
+    height:100vh;
+    border-radius: 2rem;
+    border: 10px solid $blue_c;
+    padding: 10px;
+    .sub_com{
+        width:100%;
+        height: 100%;
+        border-radius: 1.2rem;
+        background-color: $blue_c;
+    }
+}

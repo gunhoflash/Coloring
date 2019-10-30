@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 
 import Select from './component/Select';
 
@@ -17,11 +16,15 @@ class App extends React.Component {
   }
 
   render(){
-    return(<Select 
+    return(<div className="component">
+      <div className="sub_com">
+        <Select 
       renderState={this.state.renderState}
       nextPage = {this.nextPage.bind(this)}
       backPage = {this.backPage.bind(this)}
-      />);
+      />
+      </div>
+      </div>);
   }
 }
 

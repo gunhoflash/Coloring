@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 import PropTypes from 'prop-types';
 
 function Bfore(props){
