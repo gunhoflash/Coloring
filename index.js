@@ -46,42 +46,40 @@ app.all('*', (req, res, next) => {
 
 // /
 app.get('/', (req, res) => {
-	console.log('/');
-	res.render('index', {target: JSON.stringify(null)});
+	res.render('index', { target: JSON.stringify(null) });
 });
 
 // /register
 app.get('/register', (req, res) => {
-	console.log('/register');
 	res.render('register');
 });
 
 // login with hashed url
 app.get('/id/:hashed', (req, res) => {
-	console.log(req.params.hashed);
 	TargetController
-	.getTarget(req.params.hashed)
+	.getTargetByHashed(req.params.hashed)
 	.then(target => {
 		if (!target)
 			res.redirect('/');
 		else
-			res.render('index', {target: JSON.stringify(target)});
+			res.render('index', { target: JSON.stringify(target) });
 	});
 });
 
 /*
-	POST FUNCTIONS
+	FUNCTIONS - HOST
 */
 
-// create host
-app.post('/createHost', (req, res) => {
-	HostController.createHost(req, res);
-});
-// register target
-app.post('/registerTarget', (req, res) => {
-	HostController.registerTarget(req, res);
-});
+app.post('/createHost',     (req, res) => { HostController.createHost(req, res);     });
+app.post('/getHostInfo',    (req, res) => { HostController.getHostInfo(req, res);    });
+app.post('/registerTarget', (req, res) => { HostController.registerTarget(req, res); });
 
+/*
+	FUNCTIONS - TARGET
+*/
+app.put('/addScore',        (req, res) => { TargetController.addScore(req, res);     });
+
+// render 404, 500
 app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });
 app.use((req, res, next) => { res.status(500).render('error/error', { errorcode: 500 }); });
 

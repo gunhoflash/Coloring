@@ -1,4 +1,5 @@
 var TargetController = require('./target');
+var Res = require('./responseError');
 var Host = require('../models/host');
 
 exports.createHost = (req, res) => {
@@ -8,10 +9,7 @@ exports.createHost = (req, res) => {
 
 		// the email is already being used
 		if (cnt > 0) {
-			return res.json({
-				result: -1,
-				message: '이미 존재하는 이메일입니다.'
-			});
+			return Res.rerror(res, '이미 존재하는 이메일입니다.');
 		}
 
 		// set properties
@@ -29,12 +27,7 @@ exports.createHost = (req, res) => {
 		// create host and save
 		Host.create(value, (err, host) => {
 			if (err) {
-				console.error(err);
-				return res.json({
-					result: 0,
-					message: '오류가 발생하였습니다.',
-					error: err.message
-				});
+				return Res.ruerror(res, err);
 			} else {
 				return res.json({
 					result: 1,
@@ -58,10 +51,7 @@ exports.registerTarget = (req, res) => {
 		// host not found
 		if (!host) {
 			console.log(`host(${email}) not found`);
-			return res.json({
-				result: -1,
-				message: 'Host email이 정확하지 않습니다.'
-			});
+			return Res.rerror(res, 'Host email이 정확하지 않습니다.');
 		}
 
 		// check the number of target
@@ -71,15 +61,12 @@ exports.registerTarget = (req, res) => {
 		else {
 			// the host already has 2 targets
 			console.log(`the host(${email}) already has 2 targets`);
-			return res.json({
-				result: -1,
-				message: '더이상 Target을 추가할 수 없습니다.'
-			});
+			return Res.rerror(res, '더이상 Target을 추가할 수 없습니다.');
 		}
 
 		// create target and register
 		TargetController
-		.createTarget(req, res, host, target_number)
+		.createTarget(host, target_number, req.body.name, req.body.age, req.body.sex, req.body.grade)
 		.then(target => {
 			// target created
 
@@ -100,18 +87,14 @@ exports.registerTarget = (req, res) => {
 				result: 1,
 				message: 'Target을 정상적으로 등록했습니다.'
 			});
-		}, err => {
-			// unknown error
-			console.log(err);
-			return res.json({
-				result: 0,
-				message: '알 수 없는 에러가 발생했습니다.'
-			});
-		});
+		}, err => Res.ruerror(res, err));
 	})
-	.catch(console.log);
+	.catch(err => Res.ruerror(res, err));
 };
 
+// TODO: make a new function to unregister target of host
+
+// TODO: edit it
 exports.emailVerification = (email, res) => {
 	Host
 	.findOne({
@@ -121,6 +104,30 @@ exports.emailVerification = (email, res) => {
 	.catch(console.log);
 };
 
-exports.getHostInfo = () => {
+// TODO: test it
+exports.getHostInfo = (req, res) => {
+	
+	let email = req.body.email; 
+	let name = req.body.name;
+	
+	// handle exception: not enough parameter
+	if (!email || !name) return Res.rerror('not enough parameter');
 
+	Host
+	.findOne({ email: email, name: name })
+	.then(host => {
+
+		// handle exception: host not found
+		if (!host) return Res.rerror('host not found');
+
+		res.json({
+			result               : 1,
+			name                 : host.name,
+			age                  : host.age,
+			sex                  : host.sex,
+			email                : host.email,
+			target1              : TargetController.getTargetInfoById(host.target1_id),
+			target2              : TargetController.getTargetInfoById(host.target2_id)
+		});
+	}, err => Res.ruerror(res, err));
 };
