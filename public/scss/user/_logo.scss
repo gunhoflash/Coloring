@@ -1,37 +1,31 @@
-
 .Logo{
     height: 100%;
-    background-repeat: no-repeat;
     position: relative;
     .logo_box{
+        display: flex;
         text-align: center;
         width: 100%;
         height: 100%;
-        background-image: url(../img/logo.png);    
-        background-size: 100%;
-        background-repeat: no-repeat;
         .lp_title{
-            color: white;
-            position: absolute;
-            top: 5%;
-            right: 5%;
-            animation: upAndDown 1.5s infinite;
-            margin:0;
-
-            @keyframes upAndDown {
-                0% {
-                    font-size: 5rem;
-                    text-shadow: 5px 5px 5px #0b3c58;
-                }
-                20% {
-                    font-size: 5.5rem;
-                    text-shadow: 8px 8px 5px #0b3c58;
-                }
-                100% {
-                    font-size: 5rem;
-                    text-shadow: 5px 5px 5px #0b3c58;
-                }
-              }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                width:80%; 
+                animation: upAndDown 1.5s infinite;
+    
+                @keyframes upAndDown {
+                    0% {
+                        width:80%;
+                    }
+                    20% {
+                        width: 120%;
+                    }
+                    100% {
+                        width:80%;
+                    }
+                  }
+            }
         }
     }
 }
