@@ -19,7 +19,7 @@ class Select extends React.Component{
           case 0:
           setTimeout(() => {
             this.props.nextPage();
-          }, 300000);
+          }, 4000);
             return <Logo/>;
           case 1:
               return <Start 

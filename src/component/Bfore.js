@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Bfore(props){
     return (
         <div className="Bfore">
-            <input type="button" onClick={props.backPage} value="◀"></input>
+            <button type="button" onClick={props.backPage}>◀</button>
         </div>
     )
 }

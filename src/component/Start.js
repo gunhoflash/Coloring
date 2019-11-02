@@ -1,45 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Bfore from './Bfore.js';
 import After from './After.js';
+import Nav from './Nav.js';
 
 class Start extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-          startCount:0
-        };
-      }
-
-    nextStart=()=>{
-        this.setState((prevState)=>({startCount: prevState.startCount+1}));
-    }
-
     render(){
-        let startCount=this.state.startCount;
-        let startRender;
-
-        switch(startCount){
-            case 0:
-            startRender="first start page"; break;
-            case 1:
-            startRender="second start page"; break;
-            case 2:
-            startRender="third start page"; break;
-        }
-
         return (
-            <div className="start">
-                {startRender}
-                <input type="button" onClick={this.nextStart}/>
-                <Bfore
-                     renderState={this.props.renderState}
-                     backPage = {this.props.backPage.bind(this)}
+            <div className="Start">
+                <Nav
+                    renderState={this.props.renderState}
+                    backPage = {this.props.backPage.bind(this)}
                 />
-                <After
-                     renderState={this.props.renderState}
-                     nextPage = {this.props.nextPage.bind(this)}
-                />
+                <div className="start_box s_md">
+                    <p>안녕하세요</p>
+                    <p>OOO님</p>
+                </div>
+                <div className="start_btn">
+                    <After 
+                        value="시작"
+                        renderState={this.props.renderState}
+                        nextPage = {this.props.nextPage.bind(this)}/>
+                </div>
+                <img src="img/ball.png" alt="ball" className="emoball"/>
             </div>
         );
     }
