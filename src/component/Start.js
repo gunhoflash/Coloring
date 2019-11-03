@@ -5,6 +5,8 @@ import Nav from './Nav.js';
 
 class Start extends React.Component{
     render(){
+        console.log('안녕하세요');
+        console.log(this.props.target.name);
         return (
             <div className="Start">
                 <Nav
@@ -13,7 +15,7 @@ class Start extends React.Component{
                 />
                 <div className="start_box s_md">
                     <p>안녕하세요</p>
-                    <p>OOO님</p>
+                    <p>{this.props.target.name}님</p>
                 </div>
                 <div className="start_btn">
                     <After 
@@ -31,7 +33,8 @@ class Start extends React.Component{
 Start.propTypes={
     renderState: PropTypes.number.isRequired,
     nextPage: PropTypes.func.isRequired,
-    backPage: PropTypes.func.isRequired
+    backPage: PropTypes.func.isRequired,
+    target: PropTypes.object.isRequired
 };
 
 export default Start;

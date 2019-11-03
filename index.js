@@ -43,6 +43,10 @@ app.all('*', (req, res, next) => {
 	let protocol = req.headers['x-forwarded-proto'] || req.protocol;
 	let from = `${protocol}://${req.hostname}${req.url}`;
 	console.log(`[${req.method} ${req.ip}] ${from}`);
+
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
 	next();
 });
 
@@ -74,7 +78,21 @@ app.get('/id/:hashed', (req, res) => {
 			res.render('index', {target: JSON.stringify(target)});
 	});
 });
-
+app.post('/:hashed', (req, res) => {
+	console.log(req.params.hashed);
+	TargetController
+	.getTarget(req.params.hashed)
+	.then(target => {
+		if (!target)
+			res.json({
+				target: null
+			});
+		else
+			res.json({
+				target: JSON.stringify(target)
+			});
+	});
+});
 /*
 	POST FUNCTIONS
 */
