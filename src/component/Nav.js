@@ -7,7 +7,7 @@ class Nav extends React.Component{
         return (
             <div className="Nav">
                 <div className="navi">
-                    <img src="img/title.png" alt="title"/>
+                    <img src="/img/title.png" alt="title"/>
                 </div>
                 <Bfore
                     renderState={this.props.renderState}

@@ -5,7 +5,7 @@ function Logo(){
         <div className="Logo">
             <div className="logo_box">
                 <h1 className="lp_title">
-                    <img src="img/title.png" alt="coloring"/>
+                    <img src="/img/title.png" alt="coloring"/>
                 </h1>
             </div>
         </div>

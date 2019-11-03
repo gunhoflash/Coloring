@@ -21,7 +21,7 @@ class Start extends React.Component{
                         renderState={this.props.renderState}
                         nextPage = {this.props.nextPage.bind(this)}/>
                 </div>
-                <img src="img/ball.png" alt="ball" className="emoball"/>
+                <img src="/img/ball.png" alt="ball" className="emoball"/>
             </div>
         );
     }
