@@ -66,6 +66,15 @@ app.get('/id/:hashed', (req, res) => {
 	});
 });
 
+// TODO: get /game
+app.get('/game', (req, res) => {
+	res.redirect('/');
+});
+app.get('/game/:n/:hashed', (req, res) => {
+	console.log(req.params.n);
+	console.log(req.params.hashed);
+});
+
 /*
 	FUNCTIONS - HOST
 */
