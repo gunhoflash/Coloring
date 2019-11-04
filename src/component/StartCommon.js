@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Bfore from './Bfore.js';
 import Nav from './Nav.js';
 import After from './After.js';
 
@@ -22,9 +21,6 @@ class StartCommon extends React.Component {
 					<After
 						value = "시작"
 						next = 'Popup'
-						//renderState = {this.props.renderState}
-						//nextPage = {this.props.nextPage.bind(this)}
-						currentPage = {this.props.currentPage}
 						goto = {this.props.goto.bind(this)}
 					/>
 				</div>

@@ -42,23 +42,23 @@ exports.getTargetByHashed = (hashed) => {
 // TODO: test it
 // return target info or null from id
 exports.getTargetInfoById = (id) => {
-	let return_target = null;
-	if (!id) {
+	return new Promise((resolve, reject) => {
 		Target
 		.findOne({ id: id })
 		.then(target => {
 			if (target) {
-				return_target = {
+				return resolve({
 					name: target.name,
 					age: target.age,
 					sex: target.sex,
 					grade: target.grade,
 					score: target.score
-				};
+				});
+			} else {
+				return resolve(null);
 			}
 		});
-	}
-	return return_target;
+	});
 };
 
 // TODO: test it

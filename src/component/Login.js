@@ -5,28 +5,37 @@ import Bfore from './Bfore.js';
 import Input from './Input.js';
 
 class Login extends React.Component {
-	event_post_login() {
-		$.post(
-			'http://localhost/getHostInfo',
-			{
-				name  : 'name',
-				age   : 24,
-				sex   : 'sex',
-				email : 'email',
-			},
-			function (result) {
-				console.log(result);
+
+	constructor(props) {
+		super(props);
+		this.event_post_login = this.event_post_login.bind(this);
+	}
+
+	event_post_login = () => {
+		var email = $('#input_login_email').val();
+		var name = $('#input_login_name').val();
+		if (!email || !name) {
+			alert('invalid inputs');
+			return;
+		}
+
+		$.post('http://localhost:5000/getHostInfo', {
+			email : email,
+			name  : name
+		}, function (response) {
+			if (response.result == 1) {
+				this.props.set_user(response.host_info, 'host');
+				this.props.goto();
+			} else {
+				alert(response.message);
 			}
-		);
+		}.bind(this));
 	}
 
 	render() {
 		return (
 			<div className="Login">
 				<Bfore
-					//renderState = {this.props.renderState}
-					//backPage = {this.props.backPage.bind(this)}
-					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
 				/>
 				<div>
@@ -46,9 +55,8 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-	//renderState: PropTypes.number.isRequired,
-	//backPage: PropTypes.func.isRequired
 	currentPage: PropTypes.string.isRequired,
+	set_user: PropTypes.func.isRequired,
 	goto: PropTypes.func.isRequired
 };
 

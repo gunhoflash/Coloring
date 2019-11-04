@@ -15,8 +15,6 @@ class After extends React.Component {
 }
 
 After.propTypes = {
-	//renderState: PropTypes.number.isRequired,
-	//nextPage: PropTypes.func.isRequired,
 	next: PropTypes.string.isRequired,
 	goto: PropTypes.func.isRequired,
 	value: PropTypes.string.isRequired

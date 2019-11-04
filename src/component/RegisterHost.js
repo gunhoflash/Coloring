@@ -1,70 +1,77 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
 import Bfore from './Bfore.js';
-import After from './After.js';
+import Button from './Button.js';
+import Input from './Input.js';
+class RegisterHost extends React.Component {
 
-function RegisterHost(props) {
-	return (
-		<div className="RegisterHost">
-			This is RegisterHost component!
-			<Bfore
-				renderState = {props.renderState}
-				backPage = {props.backPage.bind(this)}
-			/>
-			<After
-				renderState = {props.renderState}
-				nextPage = {props.nextPage.bind(this)}
-			/>
-			<Input
-				title = "login_name"
-				type = "text"
-			/>
-			<Input
-				title = "login_age"
-				type = "number"
-			/>
-			<Input
-				title = "login_sex"
-				type = "text"
-			/>
-			<Input
-				title = "login_email"
-				type = "email"
-			/>
-			<button id="button_register" onclick='createHost'>register</button>
-		<script>
-			function createHost() {
-				var name = $('#input_name').val();
-				var age = $('#input_age').val();
-				var sex = $('#input_sex').val();
-				var email = $('#input_email').val();
-				if (!name || !age || !sex || !email) {
-					console.log('invalid inputs');
-					return;
-				}
-				$.ajax({
-					method: 'POST',
-					url: 'http://localhost/createHost',
-					data: {
-						name  : name,
-						age   : age,
-						sex   : sex,
-						email : email
-					},
-					success: function (result) {
-						console.log(result);
-					}
-				});
+	constructor(props) {
+		super(props);
+		this.event_register = this.event_register.bind(this);
+	}
+
+	event_register = () => {
+		var email = $('#input_login_email').val();
+		var name = $('#input_login_name').val();
+		var age = $('#input_login_age').val();
+		var sex = $('#input_login_sex').val();
+		if (!email || !name || !age || !sex) {
+			alert('invalid inputs');
+			return;
+		}
+		console.log(`register: ${email}, ${name}, ${age}, ${sex}`);
+
+		$.post('http://localhost:5000/createHost', {
+			name  : name,
+			age   : age,
+			sex   : sex,
+			email : email
+		}, function (response) {
+			alert(response.message);
+			if (response.result == 1) {
+				// TODO: auto login right now
+
+				this.props.goto(); // back to Start.js
 			}
-		</script>
-		</div>
-	)
+		});
+	}
+	render () {
+		return (
+			<div className="RegisterHost">
+				This is RegisterHost component!
+				<Bfore
+					goto = {this.props.goto.bind(this)}
+				/>
+				<Input
+					title = "login_email"
+					type = "email"
+				/>
+				<Input
+					title = "login_name"
+					type = "text"
+				/>
+				<Input
+					title = "login_age"
+					type = "number"
+				/>
+				<Input
+					title = "login_sex"
+					type = "text"
+				/>
+				<Button
+					id = 'register'
+					content = 'register'
+					onClick = {this.event_register}
+				/>
+			</div>
+		)
+	}
 }
 
 RegisterHost.propTypes = {
-	renderState: PropTypes.number.isRequired,
-	nextPage: PropTypes.func.isRequired,
-	backPage: PropTypes.func.isRequired
+	currentPage: PropTypes.string.isRequired,
+	goto: PropTypes.func.isRequired,
 };
 
 export default RegisterHost;

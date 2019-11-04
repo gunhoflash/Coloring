@@ -94,9 +94,6 @@ class Popup extends React.Component {
 								<After
 									value = "네"
 									next = 'Home'
-									//renderState = {this.props.renderState}
-									//nextPage = {this.props.nextPage.bind(this)}
-									currentPage = {this.props.currentPage}
 									goto = {this.props.goto.bind(this)}
 								/>
 								<button type="button" onClick={this.rePopUp}>다시보기</button>
@@ -114,8 +111,6 @@ class Popup extends React.Component {
 		return (
 			<div className="popUp">
 				<Nav
-					//renderState = {this.props.renderState}
-					//backPage = {this.props.backPage.bind(this)}
 					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
 				/>
@@ -126,9 +121,6 @@ class Popup extends React.Component {
 }
 
 Popup.propTypes = {
-	//renderState: PropTypes.number.isRequired,
-	//nextPage: PropTypes.func.isRequired,
-	//backPage: PropTypes.func.isRequired
 	currentPage: PropTypes.string.isRequired,
 	goto: PropTypes.func.isRequired,
 };

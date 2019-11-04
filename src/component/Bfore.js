@@ -10,9 +10,6 @@ function Bfore(props) {
 }
 
 Bfore.propTypes = {
-	//renderState: PropTypes.number.isRequired,
-	//backPage: PropTypes.func.isRequired
-	currentPage: PropTypes.string.isRequired,
 	goto: PropTypes.func.isRequired
 };
 
