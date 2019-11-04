@@ -1,0 +1,128 @@
+.popUp{
+    height:100%;
+    position: relative;
+    .popup_box{
+        position: absolute;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.315);
+        border-radius: 2rem;
+        margin:0;
+        &.box_one{
+            .pop_up_space{
+                margin: 10% 0 0 0;
+                width: 100%;
+                div{
+                    padding:0;
+                }
+                .pop_des{
+                    display: flex;
+                    align-items: center;
+                    p{           
+                        font-size: 4rem;
+                    }
+                }
+                .emoball{
+                    width: 100%;
+                    height: auto;
+                }
+                .pop_btn{
+                    text-align: center;
+                    display: flex;
+                    justify-content: space-around;
+                    button{
+                        width: 40%;
+                        font-size: 3rem;
+                        font-weight: 600;
+                        padding: 3% 0;
+                    }
+                }
+            }
+        }
+        &.box_two{
+            .pop_up_space{
+                width: 100%;
+                .pop_img{
+                    img{
+                        width:80%;
+                        margin-left: 8%;
+                        margin-top: 3%;
+                    }
+                }
+                .pop_des{
+                    display: flex;
+                    align-items: flex-end;
+                    .main_p{
+                        font-size: 4rem;
+                        strong{
+                            color:$red_c;
+                        }
+                    }
+                    .sub_p{
+                        font-size:2rem;
+                    }
+                }
+            }
+        }
+        &.box_three{
+            .pop_up_space{
+                width: 100%;
+                height: 100%;
+                .pop_des{
+                    padding: 0 0 0 2%;
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    p{
+                        font-size:3rem;
+                        strong{
+                            font-size:4rem;
+                            color:$red_c;
+                        }
+                    }
+                }
+                .pop_img{
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+        }
+        &.box_five{
+            .pop_up_space{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                .pop_img{
+                    text-align: center;
+                    height:40%;
+                    img{
+                        height:100%;
+                    }
+                }
+                .pop_des{
+                    height: 20%;
+                    text-align: center;
+                    p{
+                        font-size:4rem;
+                    }
+                }
+                .pop_btn{
+                    height: 38%;
+                    display: flex;
+                    justify-content: space-around;
+                    button{
+                        width: 40%;
+                        font-size: 3rem;
+                        font-weight: 600;
+                        padding: 3% 0;
+                    }
+                }
+            }
+        }
+    }
+}

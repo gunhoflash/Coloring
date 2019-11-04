@@ -3330,6 +3330,17 @@ html {
           font-weight: 600;
           padding: 3% 0; }
 
+.Game {
+  width: 100%;
+  height: 100%; }
+  .Game #three {
+    width: 80%;
+    height: 70%;
+    margin: auto; }
+    .Game #three canvas {
+      width: 100% !important;
+      height: 100% !important; }
+
 .Nav {
   height: 10%; }
   .Nav .navi {

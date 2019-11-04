@@ -1,0 +1,13 @@
+.Game{
+    width:100%;
+    height: 100%;
+    #three{
+        width: 80%;
+        height: 70%;
+        margin:auto;
+        canvas{
+            width:100%!important;
+            height: 100%!important;
+        }
+    }
+}
