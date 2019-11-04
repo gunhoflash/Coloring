@@ -10,8 +10,10 @@ class Nav extends React.Component {
 					<img src="/img/title.png" alt="title"/>
 				</div>
 				<Bfore
-					renderState = {this.props.renderState}
-					backPage = {this.props.backPage.bind(this)}
+					//renderState = {this.props.renderState}
+					//backPage = {this.props.backPage.bind(this)}
+					currentPage = {this.props.currentPage}
+					goto = {this.props.goto.bind(this)}
 				/>
 			</div>
 		);
@@ -19,8 +21,10 @@ class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-	renderState: PropTypes.number.isRequired,
-	backPage: PropTypes.func.isRequired
+	//renderState: PropTypes.number.isRequired,
+	//backPage: PropTypes.func.isRequired
+	currentPage: PropTypes.string.isRequired,
+	goto: PropTypes.func.isRequired
 };
 
 export default Nav;

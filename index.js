@@ -99,6 +99,7 @@ app.post('/id/:hashed', (req, res) => {
 			});
 	});
 });
+
 /*
 	FUNCTIONS - HOST
 */

@@ -5,8 +5,11 @@ import Select from './component/Select';
 
 
 class App extends React.Component {
+
 	state = {
-		renderState: 0, // 0: Logo 1: Start 2: Popup 3: Home
+		renderState: 0, // 0: Logo 1: Start 2: Popup 3: Home 4: Login
+		prevPage: 'Logo',
+		currentPage: 'Logo',
 		user_info: null, // { name, email, ... }
 		user_type: null // none, host, target
 	};
@@ -21,6 +24,33 @@ class App extends React.Component {
 		this.setState(prevState => ({
 			renderState: prevState.renderState - 1
 		}));
+	}
+
+	goto = (page = 'prev') => {
+		let prevPages = {
+			'Logo': 'Logo',
+			'Start': 'Logo',
+			'Popup': 'Start',
+			'Login': 'Start',
+			'RegisterTarget': 'Start',
+			'Home': 'Start',
+			'Game': 'Home'
+		};
+		let currentPage = 'Logo';
+		let prevPage = 'Logo';
+
+		if (prevPages[page]) {
+			currentPage = page;
+			prevPage = prevPages[page];
+		} else if (prevPages[this.state.currentPage]) {
+			currentPage = prevPages[this.state.currentPage];
+			prevPage = prevPages[prevPages[this.state.currentPage]];
+		}
+
+		this.setState({
+			currentPage: currentPage,
+			prevPage: prevPage
+		});
 	}
 
 	componentDidMount() {
@@ -49,9 +79,13 @@ class App extends React.Component {
 			<div className = "component">
 				<div className = "sub_com">
 					<Select
-					renderState = {this.state.renderState}
-					nextPage = {this.nextPage.bind(this)}
-					backPage = {this.backPage.bind(this)}
+					//renderState = {this.state.renderState}
+					//nextPage = {this.nextPage.bind(this)}
+					//backPage = {this.backPage.bind(this)}
+
+					currentPage = {this.state.currentPage}
+					goto = {this.goto.bind(this)}
+
 					user_info = {this.state.user_info}
 					user_type = {this.state.user_type}
 					/>

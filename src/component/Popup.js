@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Nav from './Nav.js';
+import After from './After.js';
 
 class Popup extends React.Component {
 	constructor() {
@@ -90,7 +91,14 @@ class Popup extends React.Component {
 								<p>설명을 끝낼까요?</p>
 							</div>
 							<div className="pop_btn">
-								<button type="button" onClick={this.props.nextPage}>네</button>
+								<After
+									value = "네"
+									next = 'Home'
+									//renderState = {this.props.renderState}
+									//nextPage = {this.props.nextPage.bind(this)}
+									currentPage = {this.props.currentPage}
+									goto = {this.props.goto.bind(this)}
+								/>
 								<button type="button" onClick={this.rePopUp}>다시보기</button>
 							</div>
 						</div>
@@ -106,8 +114,10 @@ class Popup extends React.Component {
 		return (
 			<div className="popUp">
 				<Nav
-					renderState = {this.props.renderState}
-					backPage = {this.props.backPage.bind(this)}
+					//renderState = {this.props.renderState}
+					//backPage = {this.props.backPage.bind(this)}
+					currentPage = {this.props.currentPage}
+					goto = {this.props.goto.bind(this)}
 				/>
 				{popUpRender}
 			</div>
@@ -116,9 +126,11 @@ class Popup extends React.Component {
 }
 
 Popup.propTypes = {
-	renderState: PropTypes.number.isRequired,
-	nextPage: PropTypes.func.isRequired,
-	backPage: PropTypes.func.isRequired
+	//renderState: PropTypes.number.isRequired,
+	//nextPage: PropTypes.func.isRequired,
+	//backPage: PropTypes.func.isRequired
+	currentPage: PropTypes.string.isRequired,
+	goto: PropTypes.func.isRequired,
 };
 
 export default Popup;
