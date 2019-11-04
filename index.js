@@ -78,8 +78,13 @@ app.get('/id/:hashed', (req, res) => {
 			res.render('index', {target: JSON.stringify(target)});
 	});
 });
-app.post('/:hashed', (req, res) => {
-	console.log(req.params.hashed);
+app.post('/id/', (req, res) => {
+	// undefined id
+	res.json({
+		target: null
+	});
+});
+app.post('/id/:hashed', (req, res) => {
 	TargetController
 	.getTarget(req.params.hashed)
 	.then(target => {
