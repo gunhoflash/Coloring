@@ -4,7 +4,10 @@
   "description": "Let's color the world!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set Port=3000 && react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -17,9 +20,32 @@
   },
   "homepage": "https://github.com/gunhoflash/Coloring#readme",
   "dependencies": {
+    "axios": "^0.19.0",
+    "crypto": "^1.0.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "jquery": "^3.4.1",
     "mongoose": "^5.7.1",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0",
     "request": "^2.88.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
