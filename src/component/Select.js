@@ -28,8 +28,8 @@ class Select extends React.Component {
 				renderState = {this.props.renderState}
 				nextPage = {this.props.nextPage.bind(this)}
 				backPage = {this.props.backPage.bind(this)}
-				user_info = {this.state.user_info}
-				user_type = {this.state.user_type}
+				user_info = {this.props.user_info}
+				user_type = {this.props.user_type}
 			/>;
 		case 2:
 			return <Popup

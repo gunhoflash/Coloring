@@ -16,7 +16,7 @@ var port = process.env.PORT || 5000;
 
 // connect mongoDB
 var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URI || 'mongodb://heroku_4g3dqxz6:8t4s8scntjm72gfbrrs0qp92qn@ds235401.mlab.com:35401/heroku_4g3dqxz6';
-mongoose
+var mongoosePromise = mongoose
 .connect(uristring, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
@@ -49,35 +49,35 @@ app.all('*', (req, res, next) => {
 */
 
 // /
-app.get('/', (req, res) => {
-	res.render('index', { target: JSON.stringify(null) });
-});
+// app.get('/', (req, res) => {
+// 	res.render('index', { target: JSON.stringify(null) });
+// });
 
-// /register
-app.get('/register', (req, res) => {
-	res.render('register');
-});
+// // /register
+// app.get('/register', (req, res) => {
+// 	res.render('register');
+// });
 
 // login with hashed url
-app.get('/id/:hashed', (req, res) => {
-	TargetController
-	.getTargetByHashed(req.params.hashed)
-	.then(target => {
-		if (!target)
-			res.redirect('/');
-		else
-			res.render('index', { target: JSON.stringify(target) });
-	});
-});
+// app.get('/id/:hashed', (req, res) => {
+// 	TargetController
+// 	.getTargetByHashed(req.params.hashed)
+// 	.then(target => {
+// 		if (!target)
+// 			res.redirect('/');
+// 		else
+// 			res.render('index', { target: JSON.stringify(target) });
+// 	});
+// });
 
 // TODO: get /game
-app.get('/game', (req, res) => {
-	res.redirect('/');
-});
-app.get('/game/:n/:hashed', (req, res) => {
-	console.log(req.params.n);
-	console.log(req.params.hashed);
-});
+// app.get('/game', (req, res) => {
+// 	res.redirect('/');
+// });
+// app.get('/game/:n/:hashed', (req, res) => {
+// 	console.log(req.params.n);
+// 	console.log(req.params.hashed);
+// });
 
 app.post('/id/', (req, res) => {
 	// undefined id
@@ -87,7 +87,7 @@ app.post('/id/', (req, res) => {
 });
 app.post('/id/:hashed', (req, res) => {
 	TargetController
-	.getTarget(req.params.hashed)
+	.getTargetByHashed(req.params.hashed)
 	.then(target => {
 		if (!target)
 			res.json({
@@ -117,8 +117,11 @@ app.use((req, res, next) => { res.status(404).render('error/error', { errorcode:
 app.use((req, res, next) => { res.status(500).render('error/error', { errorcode: 500 }); });
 
 // start server
-server.listen(port);
-console.log(`listen now with port:${port}`);
-
-// self request
-selfRequest.init(app);
+mongoosePromise.then(() => {
+	server.listen(port);
+	console.log(`listen now with port:${port}`);
+	TargetController.logAllHashedURL();
+	
+	// self request
+	selfRequest.init(app);
+});

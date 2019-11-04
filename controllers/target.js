@@ -100,3 +100,14 @@ exports.addScore = (req, res) => {
 	})
 	.catch(err => Res.ruerror(res, err));
 };
+
+// log all hashed urls for test
+exports.logAllHashedURL = () => {
+	Target
+	.find()
+	.then(targets => {
+		targets.forEach((target, index) => {
+			console.log(`target ${index}: ${target.hashed}`);
+		});
+	});
+};
