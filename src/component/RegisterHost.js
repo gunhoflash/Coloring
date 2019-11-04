@@ -1,6 +1,4 @@
-// TODO: test it
 import React from 'react';
-import $ from 'jquery';
 import PropTypes from 'prop-types';
 import Bfore from './Bfore.js';
 import After from './After.js';

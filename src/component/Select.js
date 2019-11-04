@@ -15,7 +15,8 @@ class Select extends React.Component {
 	render() {
 		const renderState = this.props.renderState;
 		console.log(12345);
-		console.log(this.props.target);
+		console.log(this.props.user_info);
+		console.log(this.props.user_type);
 		switch(renderState) {
 		case 0:
 			setTimeout(() => {
@@ -27,7 +28,8 @@ class Select extends React.Component {
 				renderState = {this.props.renderState}
 				nextPage = {this.props.nextPage.bind(this)}
 				backPage = {this.props.backPage.bind(this)}
-				target = {this.props.target}
+				user_info = {this.state.user_info}
+				user_type = {this.state.user_type}
 			/>;
 		case 2:
 			return <Popup
@@ -49,7 +51,8 @@ Select.propTypes = {
 	renderState: PropTypes.number.isRequired,
 	nextPage: PropTypes.func.isRequired,
 	backPage: PropTypes.func.isRequired,
-	target: PropTypes.object.isRequired
+	user_info: PropTypes.object.isRequired,
+	user_type: PropTypes.string.isRequired
 };
 
 export default Select;

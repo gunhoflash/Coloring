@@ -1,7 +1,6 @@
 // TODO: test 
 // TODO: get host data
 import React from 'react';
-import $ from 'jquery';
 import PropTypes from 'prop-types';
 import Bfore from './Bfore.js';
 import After from './After.js';
@@ -41,7 +40,7 @@ function RegisterTarget(props) {
 				var age = $('#input_age').val();
 				var sex = $('#input_sex').val();
 				var grade = $('#input_grade').val();
-				var email = {props.email};
+				var email = {props.user_info.email};
 				if (!name || !age || !sex || !grade) {
 					console.log('invalid inputs');
 					return;
@@ -70,7 +69,7 @@ RegisterTarget.propTypes = {
 	renderState: PropTypes.number.isRequired,
 	nextPage: PropTypes.func.isRequired,
 	backPage: PropTypes.func.isRequired,
-	email: PropTypes.string.isRequired
+	user_info: PropTypes.object.isRequired
 };
 
 export default RegisterTarget;

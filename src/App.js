@@ -7,8 +7,8 @@ import Select from './component/Select';
 class App extends React.Component {
 	state = {
 		renderState: 0, // 0: Logo 1: Start 2: Popup 3: Home
-		targetSelected: false,
-		target: null
+		user_info: null, // { name, email, ... }
+		user_type: null // none, host, target
 	};
 
 	nextPage = () => {
@@ -26,20 +26,24 @@ class App extends React.Component {
 	componentDidMount() {
 		axios.post('http://localhost:5000/id' + window.location.pathname).then(response => {
 			let jsondata = JSON.parse(response.data.target);
+			let user_type;
 			console.log(jsondata);
 			if (jsondata == null) {
 				jsondata = {
 					name: 'user' + String('0000' + Math.floor(Math.random() * 9999)).substr(-4)
 				};
+				user_type = 'none';
+			} else {
+				user_type = 'target';
 			}
 			this.setState({
-				targetSelected: true,
-				target: jsondata
+				user_info: jsondata,
+				user_type: user_type
 			});
 		});
 	}
 	render() {
-		if (this.state.targetSelected == false)
+		if (this.state.user_type == null)
 			return null;
 		return (
 			<div className = "component">
@@ -48,7 +52,8 @@ class App extends React.Component {
 					renderState = {this.state.renderState}
 					nextPage = {this.nextPage.bind(this)}
 					backPage = {this.backPage.bind(this)}
-					target = {this.state.target}
+					user_info = {this.state.user_info}
+					user_type = {this.state.user_type}
 					/>
 				</div>
 			</div>
