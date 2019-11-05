@@ -9,9 +9,15 @@ class Nav extends React.Component {
 				<div className="navi">
 					<img src="/img/title.png" alt="title"/>
 				</div>
-				<Bfore
-					goto = {this.props.goto.bind(this)}
-				/>
+				<p>OOO님</p>
+				<div className="nav_button">
+					<Bfore
+						goto = {this.props.goto.bind(this)}
+					/>
+					<div className="inform">
+						<button type="button">?</button>
+					</div>
+				</div>
 			</div>
 		);
 	}

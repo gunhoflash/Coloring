@@ -1,83 +1,97 @@
 
 .Start{
-    height: 100%;
-    .start_box{
-        &.s_md{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding:1% 0 0;
-            height: 50%;
-            text-align: center;
-            p{
-                font-size: 4.5rem;
-                color: $blue_c;
+    position: relative;
+    .StartCommon{
+        height: 100%;
+        .start_box{
+            &.s_md{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                height: 45%;
+                text-align: center;
+                p{
+                    font-size: 4.5rem;
+                    color: $blue_c;
+                }
             }
         }
-    }
-    .start_btn{    
-        display: flex;
-        height: 40%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .After{         
-            height: 90%;
-            width: 30%;
-            animation: upAndDownS 2s infinite;
+        .start_btn{    
+            display: flex;
+            height: 38%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .After{         
+                height: 90%;
+                width: 30%;
+                animation: upAndDownS 2s infinite;
 
-            @keyframes upAndDownS {
-                0% {
-                    height: 90%;
-                    width: 30%;
+                @keyframes upAndDownS {
+                    0% {
+                        height: 90%;
+                        width: 30%;
+                    }
+                    20% {
+                        height: 100%;
+                        width: 35%;
+                    }
+                    100% {
+                        height: 90%;
+                        width: 30%;
+                    }
                 }
-                20% {
+                button{
+                    font-size:4rem;
+                    width: 100%;
                     height: 100%;
-                    width: 35%;
+                    border: none;
+                    font-weight: 600;
+                    background-color: $red_c;
+                    color: beige;
+                    border-radius: 1.5rem;
+                    z-index: 1;
+                    box-shadow: 0px 0px 12px #af3939;
+                }
+            }
+        }
+        .emoball{
+            position: fixed;
+            bottom: 3%;
+            left: 3%;
+            animation: moveLinear 4s forwards;
+            z-index: 100;
+            height: 25%;
+        
+            @keyframes moveLinear { // change to three.js
+                0% {
+                    left: 10px;
+                }
+                50% {
+                    left: 50%;
                 }
                 100% {
-                    height: 90%;
-                    width: 30%;
+                    left: 110%;
                 }
             }
-            button{
-                font-size:4rem;
-                width: 100%;
-                height: 100%;
-                border: none;
-                font-weight: 600;
-                background-color: $red_c;
-                color: beige;
-                border-radius: 1.5rem;
-                z-index: 1;
-                box-shadow: 0px 0px 12px #af3939;
+        }
+
+        .Nav{
+            .Bfore{
+                display: none;
+            }
+            p{
+                display:none;
+            }
+            .inform{
+                display:none;
             }
         }
     }
-    .emoball{
-        position: fixed;
-        bottom: 3%;
-        left: 3%;
-        animation: moveLinear 4s forwards;
-        z-index: 100;
-        height: 25%;
-    
-        @keyframes moveLinear { // change to three.js
-            0% {
-                left: 10px;
-            }
-            50% {
-                left: 50%;
-            }
-            100% {
-                left: 110%;
-            }
-        }
+    span{   
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
     }
 
-    .Nav{
-        .Bfore{
-            display: none;
-        }
-    }
 }

@@ -5,6 +5,7 @@ import Logo from './Logo';
 import Start from './Start';
 import Popup from './Popup';
 import Home from './Home';
+import Game from './Game';
 import Login from './Login';
 import RegisterHost from './RegisterHost';
 import ManageTarget from './ManageTarget';
@@ -51,6 +52,11 @@ class Select extends React.Component {
 					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
 					user_info = {this.props.user_info}
+				/>;
+			case 'Game':
+				return <Game
+					currentPage = {this.props.currentPage}
+					goto = {this.props.goto.bind(this)}
 				/>;
 			default:
 				console.log(`route default from ${this.props.currentPage}`);
