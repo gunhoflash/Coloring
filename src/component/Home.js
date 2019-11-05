@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Bfore from './Bfore.js';
+import Nav from './Nav.js';
 import After from './After.js';
 
 class Home extends React.Component {
 	render () {
 		return (
 			<div className="Home">
-				This is Home component!
+				<Nav
+					currentPage = {this.props.currentPage}
+					goto = {this.props.goto.bind(this)}
+				/>
+				<div className="home_con">
+					<img className="game_list" src="./img/title.png" onClick={this.props.goto('Game')}/>
+				</div>
 				<Bfore
 					goto = {this.props.goto.bind(this)}
 				/>

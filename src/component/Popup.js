@@ -67,7 +67,7 @@ class Popup extends React.Component {
 								<p className="main_p">여기를 <strong>클릭</strong>하면<br/> 다음 게임을<br/>볼 수 있어요</p>
 							</div>
 							<div className="pop_img col-4">
-								<img src="/img/ball3.png"></img>
+								<img src="/img/popup_ball2.png"></img>
 							</div>
 						</div>
 					</div>
@@ -76,7 +76,16 @@ class Popup extends React.Component {
 
 			case 3:
 				popUpRender = (
-					<p onClick={this.nextPopUp}>네번째 화면입니다.</p>
+					<div className="popup_box box_four" onClick={this.nextPopUp}>
+						<div className="pop_up_space row">
+							<div className="pop_des col-8">
+								
+							</div>
+							<div className="pop_img col-4">
+								<img src="/img/popup_ball2.png"></img>
+							</div>
+						</div>
+					</div>
 				);
 				break;
 
