@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Bfore from './Bfore.js';
 import Nav from './Nav.js';
 import After from './After.js';
 
@@ -9,8 +8,6 @@ class StartCommon extends React.Component {
 		return (
 			<div className="StartCommon">
 				<Nav
-					//renderState = {this.props.renderState}
-					//backPage = {this.props.backPage.bind(this)}
 					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
 				/>
@@ -22,9 +19,6 @@ class StartCommon extends React.Component {
 					<After
 						value = "시작"
 						next = 'Popup'
-						//renderState = {this.props.renderState}
-						//nextPage = {this.props.nextPage.bind(this)}
-						currentPage = {this.props.currentPage}
 						goto = {this.props.goto.bind(this)}
 					/>
 				</div>
@@ -35,8 +29,6 @@ class StartCommon extends React.Component {
 }
 
 StartCommon.propTypes = {
-	//renderState: PropTypes.number.isRequired,
-	//backPage: PropTypes.func.isRequired,
 	currentPage: PropTypes.string.isRequired,
 	goto: PropTypes.func.isRequired,
 	user_info: PropTypes.object.isRequired,

@@ -7,23 +7,17 @@ import Select from './component/Select';
 class App extends React.Component {
 
 	state = {
-		renderState: 0, // 0: Logo 1: Start 2: Popup 3: Home 4: Login
 		prevPage: 'Logo',
 		currentPage: 'Logo',
 		user_info: null, // { name, email, ... }
-		user_type: null // none, host, target
+		user_type: null  // none, host, target
 	};
 
-	nextPage = () => {
-		this.setState(prevState => ({
-			renderState: prevState.renderState + 1
-		}));
-	}
-
-	backPage = () => {
-		this.setState(prevState => ({
-			renderState: prevState.renderState - 1
-		}));
+	set_user = (user_info, user_type) => {
+		this.setState({
+			user_info: user_info,
+			user_type: user_type
+		});
 	}
 
 	goto = (page = 'prev') => {
@@ -32,7 +26,8 @@ class App extends React.Component {
 			'Start': 'Logo',
 			'Popup': 'Start',
 			'Login': 'Start',
-			'RegisterTarget': 'Start',
+			'RegisterHost': 'Start',
+			'ManageTarget': 'Start',
 			'Home': 'Start',
 			'Game': 'Home'
 		};
@@ -79,13 +74,9 @@ class App extends React.Component {
 			<div className = "component">
 				<div className = "sub_com">
 					<Select
-					//renderState = {this.state.renderState}
-					//nextPage = {this.nextPage.bind(this)}
-					//backPage = {this.backPage.bind(this)}
-
 					currentPage = {this.state.currentPage}
+					set_user = {this.set_user.bind(this)}
 					goto = {this.goto.bind(this)}
-
 					user_info = {this.state.user_info}
 					user_type = {this.state.user_type}
 					/>

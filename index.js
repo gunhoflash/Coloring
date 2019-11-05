@@ -48,37 +48,6 @@ app.all('*', (req, res, next) => {
 	ROUTE
 */
 
-// /
-// app.get('/', (req, res) => {
-// 	res.render('index', { target: JSON.stringify(null) });
-// });
-
-// // /register
-// app.get('/register', (req, res) => {
-// 	res.render('register');
-// });
-
-// login with hashed url
-// app.get('/id/:hashed', (req, res) => {
-// 	TargetController
-// 	.getTargetByHashed(req.params.hashed)
-// 	.then(target => {
-// 		if (!target)
-// 			res.redirect('/');
-// 		else
-// 			res.render('index', { target: JSON.stringify(target) });
-// 	});
-// });
-
-// TODO: get /game
-// app.get('/game', (req, res) => {
-// 	res.redirect('/');
-// });
-// app.get('/game/:n/:hashed', (req, res) => {
-// 	console.log(req.params.n);
-// 	console.log(req.params.hashed);
-// });
-
 app.post('/id/', (req, res) => {
 	// undefined id
 	res.json({
