@@ -1,5 +1,6 @@
 // response error message to user
 exports.rerror = (res, message) => {
+    console.log(message);
     res.json({
         result: 0,
         message: message
@@ -9,5 +10,5 @@ exports.rerror = (res, message) => {
 // response unexpected error message to user
 exports.ruerror = (res, err) => {
     console.log(err);
-    this.responseError(res, 'Unexpected Error');
+    this.rerror(res, 'Unexpected Error');
 };

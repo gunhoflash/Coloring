@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const HostController = require('./controllers/host');
 const TargetController = require('./controllers/target');
 
-/* core (will be deprecated) */
+/* core */
 const selfRequest = require('./core/selfRequest');
 
 const app = express();

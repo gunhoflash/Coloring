@@ -32,6 +32,29 @@ exports.createTarget = (host, target_number, name, age, sex, grade) => {
 	});
 };
 
+// TODO: edit it
+// update target info
+exports.updateTarget = (id, name, age, sex, grade) => {
+	return new Promise((resolve, reject) => {
+		Target
+		.findOne({ _id: id })
+		.then(target => {
+			if (!target) return reject('잘못된 정보입니다.');
+			target.name = name;
+			target.age = age;
+			target.sex = sex;
+			target.grade = grade;
+			target.save(err => {
+				if (err) {
+					return reject(err);
+				} else {
+					return resolve('성공적으로 저장되었습니다.');
+				}
+			});
+		});
+	});
+};
+
 // return target(or null) from hashed
 exports.getTargetByHashed = (hashed) => {
 	if (!hashed) return null;
@@ -41,25 +64,21 @@ exports.getTargetByHashed = (hashed) => {
 
 // TODO: test it
 // return target info or null from id
-exports.getTargetInfoById = (id) => {
-	let return_target = null;
-	if (!id) {
+exports.getTargetInfoById = (id) => 
+	new Promise((resolve, reject) => {
 		Target
-		.findOne({ id: id })
+		.findOne({ _id: id })
 		.then(target => {
-			if (target) {
-				return_target = {
-					name: target.name,
-					age: target.age,
-					sex: target.sex,
-					grade: target.grade,
-					score: target.score
-				};
-			}
+			if (!target) return resolve(null);
+			return resolve({
+				name: target.name,
+				age: target.age,
+				sex: target.sex,
+				grade: target.grade,
+				score: target.score
+			});
 		});
-	}
-	return return_target;
-};
+	});
 
 // TODO: test it
 // return score(or 0) from hashed

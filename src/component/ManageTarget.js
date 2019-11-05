@@ -18,13 +18,14 @@ class ManageTarget extends React.Component {
 		console.log(this.props.user_info);
 	}
 
-	event_register_target(name, age, sex, grade, relationship) {
+	event_register_target(target_number, name, age, sex, grade, relationship) {
 		if (!name || !age || !sex || !grade || !relationship) {
 			alert('invalid inputs');
 			return;
 		}
 		console.log(`register: ${name}, ${age}, ${sex}, ${grade}, ${relationship}`);
 		$.post('http://localhost:5000/registerTarget', {
+			target_number: target_number,
 			name         : name,
 			age          : age,
 			sex          : sex,
@@ -41,6 +42,7 @@ class ManageTarget extends React.Component {
 
 	event_target1_save() {
 		this.event_register_target(
+			1,
 			$('#input_target1_name').val(),
 			$('#input_target1_age').val(),
 			$('#input_target1_sex').val(),
@@ -51,6 +53,7 @@ class ManageTarget extends React.Component {
 
 	event_target2_save() {
 		this.event_register_target(
+			2,
 			$('#input_target2_name').val(),
 			$('#input_target2_age').val(),
 			$('#input_target2_sex').val(),
