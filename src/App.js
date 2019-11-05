@@ -72,15 +72,13 @@ class App extends React.Component {
 			return null;
 		return (
 			<div className = "component">
-				<div className = "sub_com">
-					<Select
-					currentPage = {this.state.currentPage}
-					set_user = {this.set_user.bind(this)}
-					goto = {this.goto.bind(this)}
-					user_info = {this.state.user_info}
-					user_type = {this.state.user_type}
-					/>
-				</div>
+				<Select
+				currentPage = {this.state.currentPage}
+				goto = {this.goto.bind(this)}
+
+				user_info = {this.state.user_info}
+				user_type = {this.state.user_type}
+				/>
 			</div>
 		);
 	}

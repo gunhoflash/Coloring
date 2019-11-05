@@ -3147,12 +3147,8 @@ html {
   position: relative; }
   .Logo .logo_box {
     display: flex;
-    text-align: center;
-    width: 100%;
-    height: 100%; }
+    text-align: center; }
     .Logo .logo_box .lp_title {
-      width: 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center; }
@@ -3168,13 +3164,6 @@ html {
     width: 80%; } }
 .Start {
   height: 100%; }
-  .Start .start_box.s_top {
-    height: 10%; }
-    .Start .start_box.s_top .navi {
-      height: 100%;
-      float: right; }
-      .Start .start_box.s_top .navi img {
-        height: 100%; }
   .Start .start_box.s_md {
     display: flex;
     flex-direction: column;
@@ -3218,11 +3207,11 @@ html {
         box-shadow: 0px 0px 12px #af3939; }
   .Start .emoball {
     position: fixed;
-    bottom: 0;
-    left: 10px;
+    bottom: 3%;
+    left: 3%;
     animation: moveLinear 4s forwards;
     z-index: 100;
-    height: 100%; }
+    height: 25%; }
 @keyframes moveLinear {
   0% {
     left: 10px; }
@@ -3232,12 +3221,6 @@ html {
     left: 110%; } }
   .Start .Nav .Bfore {
     display: none; }
-
-.Bfore {
-  height: 130%;
-  margin: 1%;
-  float: left;
-  width: 7%; }
 
 .popUp {
   height: 100%;
@@ -3341,16 +3324,6 @@ html {
       width: 100% !important;
       height: 100% !important; }
 
-.Nav {
-  height: 10%; }
-  .Nav .navi {
-    height: 100%;
-    float: right; }
-    .Nav .navi img {
-      height: 100%; }
-  .Nav .Bfore input {
-    height: 100%; }
-
 * {
   box-sizing: border-box; }
   * ::-webkit-scrollbar {
@@ -3370,11 +3343,12 @@ body {
   border-radius: 2rem;
   border: 10px solid beige;
   padding: 10px; }
-  .component .sub_com {
-    width: 100%;
-    height: 100%;
+  .component > div {
     border-radius: 1.2rem;
     background-color: beige; }
+    .component > div, .component > div div {
+      width: 100%;
+      height: 100%; }
 
 button {
   height: 100%;
@@ -3382,6 +3356,23 @@ button {
   color: white;
   border-radius: 0.4rem;
   background-color: #317094; }
+
+.Nav {
+  height: 10% !important;
+  width: auto; }
+  .Nav .navi {
+    height: 100%;
+    float: right; }
+    .Nav .navi img {
+      height: 100%; }
+  .Nav .Bfore input {
+    height: 100%; }
+
+.Bfore {
+  height: 130% !important;
+  margin: 1%;
+  float: left;
+  width: 7% !important; }
 
 .row {
   margin: 0; }

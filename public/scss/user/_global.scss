@@ -21,11 +21,13 @@ body{
     border-radius: 2rem;
     border: 10px solid $bg_c;
     padding: 10px;
-    .sub_com{
-        width:100%;
-        height: 100%;
+    &>div{
         border-radius: 1.2rem;
         background-color: $bg_c;
+        &, & div{
+            width:100%;
+            height: 100%;
+        }
     }
 }
 
