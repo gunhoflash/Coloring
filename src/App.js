@@ -75,7 +75,7 @@ class App extends React.Component {
 				<Select
 				currentPage = {this.state.currentPage}
 				goto = {this.goto.bind(this)}
-
+				set_user = {this.set_user.bind(this)}
 				user_info = {this.state.user_info}
 				user_type = {this.state.user_type}
 				/>
