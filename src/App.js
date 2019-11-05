@@ -77,19 +77,17 @@ class App extends React.Component {
 			return null;
 		return (
 			<div className = "component">
-				<div className = "sub_com">
-					<Select
-					//renderState = {this.state.renderState}
-					//nextPage = {this.nextPage.bind(this)}
-					//backPage = {this.backPage.bind(this)}
+				<Select
+				//renderState = {this.state.renderState}
+				//nextPage = {this.nextPage.bind(this)}
+				//backPage = {this.backPage.bind(this)}
 
-					currentPage = {this.state.currentPage}
-					goto = {this.goto.bind(this)}
+				currentPage = {this.state.currentPage}
+				goto = {this.goto.bind(this)}
 
-					user_info = {this.state.user_info}
-					user_type = {this.state.user_type}
-					/>
-				</div>
+				user_info = {this.state.user_info}
+				user_type = {this.state.user_type}
+				/>
 			</div>
 		);
 	}

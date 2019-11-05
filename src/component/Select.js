@@ -20,7 +20,7 @@ class Select extends React.Component {
 				setTimeout(() => {
 					this.props.goto('Start');
 					// this.props.nextPage();
-				}, 4000);
+				}, 1000);
 				return <Logo/>;
 			case 'Start':
 				return <Start 

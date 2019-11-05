@@ -2,16 +2,6 @@
 .Start{
     height: 100%;
     .start_box{
-        &.s_top{
-            height: 10%;
-            .navi{
-                height: 100%;
-                float: right;
-                img{
-                    height: 100%;
-                }
-            }
-        }
         &.s_md{
             display: flex;
             flex-direction: column;
@@ -66,11 +56,11 @@
     }
     .emoball{
         position: fixed;
-        bottom: 0;
-        left: 10px;
+        bottom: 3%;
+        left: 3%;
         animation: moveLinear 4s forwards;
         z-index: 100;
-        height: 100%;
+        height: 25%;
     
         @keyframes moveLinear { // change to three.js
             0% {
