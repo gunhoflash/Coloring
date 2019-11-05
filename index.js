@@ -45,34 +45,35 @@ app.all('*', (req, res, next) => {
 });
 
 /*
-	ROUTE
+	URL AS ID
 */
 
+/*
+	handle exception: undefined id
+*/
 app.post('/id/', (req, res) => {
-	// undefined id
 	res.json({
 		target: null
 	});
 });
+
+/*
+	Return target's information as JSON-string from hashed url.
+	If the url is invalid, 'null' would be returned.
+*/
 app.post('/id/:hashed', (req, res) => {
 	TargetController
 	.getTargetByHashed(req.params.hashed)
-	.then(target => {
-		if (!target)
-			res.json({
-				target: null
-			});
-		else
-			res.json({
-				target: JSON.stringify(target)
-			});
-	});
+	.then(target => 
+		res.json({
+			target: JSON.stringify(target)
+		})
+	);
 });
 
 /*
 	FUNCTIONS - HOST
 */
-
 app.post('/createHost',   (req, res) => { HostController.createHost(req, res);   });
 app.post('/getHostInfo',  (req, res) => { HostController.getHostInfo(req, res);  });
 app.post('/manageTarget', (req, res) => { HostController.manageTarget(req, res); });
@@ -80,7 +81,7 @@ app.post('/manageTarget', (req, res) => { HostController.manageTarget(req, res);
 /*
 	FUNCTIONS - TARGET
 */
-app.put('/addScore',        (req, res) => { TargetController.addScore(req, res);     });
+app.put('/addScore',      (req, res) => { TargetController.addScore(req, res);   });
 
 // render 404, 500
 app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });

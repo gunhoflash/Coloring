@@ -31,7 +31,8 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "three": "^0.110.0"
   },
   "eslintConfig": {
     "extends": "react-app"
