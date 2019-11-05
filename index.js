@@ -73,9 +73,9 @@ app.post('/id/:hashed', (req, res) => {
 	FUNCTIONS - HOST
 */
 
-app.post('/createHost',     (req, res) => { HostController.createHost(req, res);     });
-app.post('/getHostInfo',    (req, res) => { HostController.getHostInfo(req, res);    });
-app.post('/registerTarget', (req, res) => { HostController.registerTarget(req, res); });
+app.post('/createHost',   (req, res) => { HostController.createHost(req, res);   });
+app.post('/getHostInfo',  (req, res) => { HostController.getHostInfo(req, res);  });
+app.post('/manageTarget', (req, res) => { HostController.manageTarget(req, res); });
 
 /*
 	FUNCTIONS - TARGET

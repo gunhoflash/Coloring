@@ -47,9 +47,8 @@ exports.createHost = (req, res) => {
 	});
 };
 
-// TODO: edit it
-// register/change target
-exports.registerTarget = (req, res) => {
+// create/change target
+exports.manageTarget = (req, res) => {
 	var email = req.body.email;
 	var target_number = req.body.target_number;
 	var name = req.body.name;
@@ -57,7 +56,7 @@ exports.registerTarget = (req, res) => {
 	var sex = req.body.sex;
 	var grade = req.body.grade;
 
-	console.log(`registerTarget: ${email}`);
+	console.log(`manageTarget: ${email}`);
 
 	// find host by email
 	Host
