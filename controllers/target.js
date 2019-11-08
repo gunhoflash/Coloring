@@ -69,11 +69,13 @@ exports.getTargetInfoById = (id) =>
 		.then(target => {
 			if (!target) return resolve(null);
 			return resolve({
-				name: target.name,
-				age: target.age,
-				sex: target.sex,
-				grade: target.grade,
-				score: target.score
+				name         : target.name,
+				age          : target.age,
+				sex          : target.sex,
+				grade        : target.grade,
+				hashed       : target.hashed,
+				score        : target.score,
+				relationship : target.relationship
 			});
 		});
 	});

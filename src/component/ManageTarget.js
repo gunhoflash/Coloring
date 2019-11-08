@@ -63,10 +63,11 @@ class ManageTarget extends React.Component {
 	}
 
 	render () {
-		let name1, name2, age1, age2, sex1, sex2, grade1, grade2, relationship1, relationship2;
+		let hashed1, hashed2, name1, name2, age1, age2, sex1, sex2, grade1, grade2, relationship1, relationship2;
 		name1 = name2 = age1 = age2 = sex1 = sex2 = grade1 = grade2 = relationship1 = relationship2 = '';
 
 		if (this.target1 != null) {
+			hashed1       = this.target1.hashed;
 			name1         = this.target1.name;
 			age1          = this.target1.age;
 			sex1          = this.target1.sex;
@@ -74,6 +75,7 @@ class ManageTarget extends React.Component {
 			relationship1 = this.target1.relationship;
 		}
 		if (this.target2 != null) {
+			hashed2       = this.target1.hashed;
 			name2         = this.target2.name;
 			age2          = this.target2.age;
 			sex2          = this.target2.sex;
@@ -116,7 +118,7 @@ class ManageTarget extends React.Component {
 							value = {relationship1}
 						/>
 						<p>
-							{(this.target1 == null) ? "" : this.target1.hashed}
+							{hashed1}
 						</p>
 						<Button
 							id = "target1_save"
@@ -152,7 +154,7 @@ class ManageTarget extends React.Component {
 							value = {relationship2}
 						/>
 						<p>
-							{(this.target2 == null) ? "" : this.target2.hashed}
+							{hashed2}
 						</p>
 						<Button
 							id = "target2_save"
