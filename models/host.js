@@ -10,9 +10,7 @@ var HostSchema = new mongoose.Schema({
 		unique: true
 	},
 	target1_id: String,
-	target2_id: String,
-	target1_relationship: String,
-	target2_relationship: String
+	target2_id: String
 }, {
 	timestamps: true
 });

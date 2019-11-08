@@ -23,14 +23,12 @@ exports.createHost = (req, res) => {
 
 		// set properties
 		var value = {
-			name                 : name,
-			age                  : age,
-			sex                  : sex,
-			email                : email,
-			target1_id           : null,
-			target2_id           : null,
-			target1_relationship : null,
-			target2_relationship : null
+			name      : name,
+			age       : age,
+			sex       : sex,
+			email     : email,
+			target1_id: null,
+			target2_id: null
 		};
 
 		// create host and save
@@ -137,9 +135,7 @@ exports.getHostInfo = (req, res) => {
 			sex                  : host.sex,
 			email                : host.email,
 			target1              : null,
-			target2              : null,
-			target1_relationship : host.target1_relationship,
-			target2_relationship : host.target2_relationship
+			target2              : null
 		};
 
 		// find the targets

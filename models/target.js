@@ -11,7 +11,8 @@ var TargetSchema = new mongoose.Schema({
 		trim: true
 	},
 	host_id: String,
-	score: Number
+	score: Number,
+	relationship: String
 }, {
 	timestamps: true
 });

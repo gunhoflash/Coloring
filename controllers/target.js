@@ -10,13 +10,14 @@ exports.createTarget = (host, target_number, name, age, sex, grade, relationship
 
 	// set properties
 	var value = {
-		name    : name,
-		age     : age,
-		sex     : sex,
-		grade   : grade,
-		hashed  : hashed.digest('hex'),
-		host_id : host.id,
-		score   : 0
+		name         : name,
+		age          : age,
+		sex          : sex,
+		grade        : grade,
+		hashed       : hashed.digest('hex'),
+		host_id      : host.id,
+		score        : 0,
+		relationship : relationship
 	};
 	
 	// create target and save
@@ -25,21 +26,7 @@ exports.createTarget = (host, target_number, name, age, sex, grade, relationship
 			if (err)
 				return reject(err);
 			else {
-				console.log(`new target.id = ${target.id}`);
-
-				if (target_number == 1) {
-					host.target1_id           = target.id;
-					host.target1_relationship = relationship;
-				}
-				if (target_number == 2) {
-					host.target2_id           = target.id;
-					host.target2_relationship = relationship;
-				}
-				host.save(err => {
-					if (err) console.log(err);
-				});
-
-				console.log(`target1(${target.id}) is registered to host(${host.email})`);
+				console.log(`new target${target_number}(${target.id}) is registered to host(${host.email})`);
 				return resolve(target);
 			}
 		});
@@ -54,16 +41,14 @@ exports.updateTarget = (host, id, name, age, sex, grade, relationship) =>
 		.findOne({ _id: id })
 		.then(target => {
 			if (!target) return reject('잘못된 정보입니다.');
-			target.name = name;
-			target.age = age;
-			target.sex = sex;
-			target.grade = grade;
+			target.name         = name;
+			target.age          = age;
+			target.sex          = sex;
+			target.grade        = grade;
+			target.relationship = relationship;
 			target.save(err => {
-				if (err) {
-					return reject(err);
-				} else {
-					return resolve(target);
-				}
+				if (err) return reject(err);
+				else     return resolve(target);
 			});
 		});
 	});
@@ -119,8 +104,7 @@ exports.addScore = (req, res) => {
 		if (!target) return Res.rerror(res, '잘못된 hashed 값입니다.');
 
 		// save new score
-		var new_score = target.score + req.body.score;
-		target.score = new_score;
+		target.score = target.score + req.body.score;
 		target.save(err => {
 			if (err) {
 				return Res.ruerror(res, err);
@@ -128,7 +112,7 @@ exports.addScore = (req, res) => {
 				return res.json({
 					result: 1,
 					message: '성공적으로 기록되었습니다.',
-					score: new_score
+					score: target.score
 				});
 			}
 		});
