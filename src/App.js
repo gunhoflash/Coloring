@@ -10,13 +10,22 @@ class App extends React.Component {
 		prevPage: 'Logo',
 		currentPage: 'Logo',
 		user_info: null, // { name, email, ... }
-		user_type: null  // none, host, target
+		user_type: null  // 'none', 'host', 'target'
 	};
 
 	set_user = (user_info, user_type) => {
 		this.setState({
 			user_info: user_info,
 			user_type: user_type
+		});
+	}
+
+	update_target = (target_number, target) => {
+		let user_info = this.state.user_info;
+		if (target_number == 1) user_info.target1 = target;
+		if (target_number == 2) user_info.target2 = target;
+		this.setState({
+			user_info: user_info
 		});
 	}
 
@@ -76,6 +85,7 @@ class App extends React.Component {
 				currentPage = {this.state.currentPage}
 				goto = {this.goto.bind(this)}
 				set_user = {this.set_user.bind(this)}
+				update_target = {this.update_target.bind(this)}
 				user_info = {this.state.user_info}
 				user_type = {this.state.user_type}
 				/>

@@ -50,6 +50,7 @@ class Select extends React.Component {
 			case 'ManageTarget':
 				return <ManageTarget
 					currentPage = {this.props.currentPage}
+					update_target = {this.props.update_target.bind(this)}
 					goto = {this.props.goto.bind(this)}
 					user_info = {this.props.user_info}
 				/>;
@@ -69,6 +70,7 @@ class Select extends React.Component {
 Select.propTypes = {
 	currentPage: PropTypes.string.isRequired,
 	set_user: PropTypes.func.isRequired,
+	update_target: PropTypes.func.isRequired,
 	goto: PropTypes.func.isRequired,
 	user_info: PropTypes.object.isRequired,
 	user_type: PropTypes.string.isRequired

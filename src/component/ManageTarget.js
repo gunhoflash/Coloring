@@ -11,10 +11,10 @@ class ManageTarget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.event_register_target = this.event_register_target.bind(this);
-		this.event_target1_save = this.event_target1_save.bind(this);
-		this.event_target2_save = this.event_target2_save.bind(this);
-		this.target1 = this.props.user_info.target1;
-		this.target2 = this.props.user_info.target2;
+		this.event_target1_save    = this.event_target1_save.bind(this);
+		this.event_target2_save    = this.event_target2_save.bind(this);
+		this.target1               = this.props.user_info.target1;
+		this.target2               = this.props.user_info.target2;
 		console.log(this.props.user_info);
 	}
 
@@ -35,7 +35,8 @@ class ManageTarget extends React.Component {
 		}, function (response) {
 			alert(response.message);
 			if (response.result == 1) {
-				this.props.goto('ManageTarget'); // refresh?
+				this.props.update_target(target_number, response.target);
+				this.props.goto('ManageTarget'); // is doesn't refresh;;
 			}
 		}.bind(this));
 	}
@@ -118,7 +119,8 @@ class ManageTarget extends React.Component {
 							value = {relationship1}
 						/>
 						<p>
-							{hashed1}
+							<label>hashed url</label>
+							<span>{hashed1}</span>
 						</p>
 						<Button
 							id = "target1_save"
@@ -154,7 +156,8 @@ class ManageTarget extends React.Component {
 							value = {relationship2}
 						/>
 						<p>
-							{hashed2}
+							<label>hashed url</label>
+							<span>{hashed2}</span>
 						</p>
 						<Button
 							id = "target2_save"
@@ -170,6 +173,7 @@ class ManageTarget extends React.Component {
 
 ManageTarget.propTypes = {
 	currentPage: PropTypes.string.isRequired,
+	update_target: PropTypes.func.isRequired,
 	goto: PropTypes.func.isRequired,
 	user_info: PropTypes.object.isRequired
 };
