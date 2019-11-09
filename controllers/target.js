@@ -6,7 +6,7 @@ var Crypto = require('crypto');
 exports.createTarget = (host, target_number, name, age, sex, grade, relationship) => {
 
 	// get hash from email and target-number
-	var hashed = Crypto.createHash('sha1').update(`target-${host.email}-${target_number}`);
+	var hashed = Crypto.createHash('sha1').update(`target${target_number}${host.email}`);
 
 	// set properties
 	var value = {
@@ -26,8 +26,15 @@ exports.createTarget = (host, target_number, name, age, sex, grade, relationship
 			if (err)
 				return reject(err);
 			else {
-				console.log(`new target${target_number}(${target.id}) is registered to host(${host.email})`);
-				return resolve(target);
+				if (target_number == 1) host.target1_id = target.id;
+				if (target_number == 2) host.target2_id = target.id;
+				host.save(err => {
+					if (err) return reject(err);
+					else {
+						console.log(`new target${target_number}(${target.id}) is registered to host(${host.email})`);
+						return resolve(target);
+					}
+				});
 			}
 		});
 	});
@@ -128,7 +135,7 @@ exports.logAllHashedURL = () => {
 	.find()
 	.then(targets => {
 		targets.forEach((target, index) => {
-			console.log(`target ${index}: ${target.hashed}`);
+			console.log(`target ${index}: ${target.hashed}, host: ${target.host_id}`);
 		});
 	});
 };

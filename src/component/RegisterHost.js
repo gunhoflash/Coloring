@@ -34,7 +34,7 @@ class RegisterHost extends React.Component {
 
 				this.props.goto(); // back to Start.js
 			}
-		});
+		}.bind(this));
 	}
 	render () {
 		return (

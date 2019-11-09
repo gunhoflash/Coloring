@@ -5,10 +5,10 @@ var Host = require('../models/host');
 // create(register) a new host with given data(email, ...)
 exports.createHost = (req, res) => {
 
-	let email = req.bosy.email;
-	let name  = req.bosy.name;
-	let age   = req.bosy.age;
-	let sex   = req.bosy.sex;
+	let email = req.body.email;
+	let name  = req.body.name;
+	let age   = req.body.age;
+	let sex   = req.body.sex;
 
 	// handle exception: not enough parameter
 	if (!email || !name || !age || !sex)
@@ -74,7 +74,7 @@ exports.manageTarget = (req, res) => {
 			// create target
 			TargetController
 			.createTarget(host, target_number, name, age, sex, grade, relationship)
-			.then(target => 
+			.then(target =>
 				res.json({
 					result: 1,
 					message: `${target_number}번째 Target을 정상적으로 등록했습니다.`,

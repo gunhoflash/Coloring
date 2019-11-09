@@ -5,7 +5,7 @@ function Input(props) {
 	return (
 		<div className="Input">
 			<label>{props.title}</label>
-			<input id={"input_" + props.title} type={props.type} defaultValue={props.value} />
+			<input id={"input_" + props.title} type={props.type} defaultValue={props.value || ''} />
 		</div>
 	)
 }

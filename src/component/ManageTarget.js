@@ -13,8 +13,7 @@ class ManageTarget extends React.Component {
 		this.event_register_target = this.event_register_target.bind(this);
 		this.event_target1_save    = this.event_target1_save.bind(this);
 		this.event_target2_save    = this.event_target2_save.bind(this);
-		this.target1               = this.props.user_info.target1;
-		this.target2               = this.props.user_info.target2;
+		this.show_target_info      = this.show_target_info.bind(this);
 		console.log(this.props.user_info);
 	}
 
@@ -36,7 +35,7 @@ class ManageTarget extends React.Component {
 			alert(response.message);
 			if (response.result == 1) {
 				this.props.update_target(target_number, response.target);
-				this.props.goto('ManageTarget'); // is doesn't refresh;;
+				this.show_target_info();
 			}
 		}.bind(this));
 	}
@@ -63,27 +62,48 @@ class ManageTarget extends React.Component {
 		);
 	}
 
+	show_target_info() {
+		const t1 = this.props.user_info.target1; 
+		const t2 = this.props.user_info.target2; 
+		let hashed1, hashed2, name1, name2, age1, age2, sex1, sex2, grade1, grade2, relationship1, relationship2, button1, button2;
+
+		hashed1       = t1 ? t1.hashed       :         '';
+		name1         = t1 ? t1.name         :         '';
+		age1          = t1 ? t1.age          :          0;
+		sex1          = t1 ? t1.sex          :         '';
+		grade1        = t1 ? t1.grade        :         '';
+		relationship1 = t1 ? t1.relationship :         '';
+		button1       = t1 ? 'save'          : 'register';
+
+		hashed2       = t2 ? t2.hashed       :         '';
+		name2         = t2 ? t2.name         :         '';
+		age2          = t2 ? t2.age          :          0;
+		sex2          = t2 ? t2.sex          :         '';
+		grade2        = t2 ? t2.grade        :         '';
+		relationship2 = t2 ? t2.relationship :         '';
+		button2       = t2 ? 'save'          : 'register';
+
+		$('#input_target1_name').val(name1);
+		$('#input_target2_name').val(name2);
+		$('#input_target1_age').val(age1);
+		$('#input_target2_age').val(age2);
+		$('#input_target1_sex').val(sex1);
+		$('#input_target2_sex').val(sex2);
+		$('#input_target1_grade').val(grade1);
+		$('#input_target2_grade').val(grade2);
+		$('#input_target1_relationship').val(relationship1);
+		$('#input_target2_relationship').val(relationship2);
+		$('#target1_hashed').text(hashed1);
+		$('#target2_hashed').text(hashed2);
+		$('#button_target1_save').text(button1);
+		$('#button_target2_save').text(button2);
+	}
+
+	componentDidMount() {
+		this.show_target_info();
+	}
+
 	render () {
-		let hashed1, hashed2, name1, name2, age1, age2, sex1, sex2, grade1, grade2, relationship1, relationship2;
-		name1 = name2 = age1 = age2 = sex1 = sex2 = grade1 = grade2 = relationship1 = relationship2 = '';
-
-		if (this.target1 != null) {
-			hashed1       = this.target1.hashed;
-			name1         = this.target1.name;
-			age1          = this.target1.age;
-			sex1          = this.target1.sex;
-			grade1        = this.target1.grade;
-			relationship1 = this.target1.relationship;
-		}
-		if (this.target2 != null) {
-			hashed2       = this.target1.hashed;
-			name2         = this.target2.name;
-			age2          = this.target2.age;
-			sex2          = this.target2.sex;
-			grade2        = this.target2.grade;
-			relationship2 = this.target1.relationship;
-		}
-
 		return (
 			<div className="ManageTarget">
 				This is ManageTarget component!
@@ -96,35 +116,30 @@ class ManageTarget extends React.Component {
 						<Input
 							title = "target1_name"
 							type = "text"
-							value = {name1}
 						/>
 						<Input
 							title = "target1_age"
 							type = "number"
-							value = {age1}
 						/>
 						<Input
 							title = "target1_sex"
 							type = "text"
-							value = {sex1}
 						/>
 						<Input
 							title = "target1_grade"
 							type = "text"
-							value = {grade1}
 						/>
 						<Input
 							title = "target1_relationship"
 							type = "text"
-							value = {relationship1}
 						/>
 						<p>
 							<label>hashed url</label>
-							<span>{hashed1}</span>
+							<span id="target1_hashed"></span>
 						</p>
 						<Button
 							id = "target1_save"
-							content = {(this.target1 == null) ? "register" : "save"}
+							content = ''
 							onClick = {this.event_target1_save}
 						/>
 					</div>
@@ -133,35 +148,30 @@ class ManageTarget extends React.Component {
 						<Input
 							title = "target2_name"
 							type = "text"
-							value = {name2}
 						/>
 						<Input
 							title = "target2_age"
 							type = "number"
-							value = {age2}
 						/>
 						<Input
 							title = "target2_sex"
 							type = "text"
-							value = {sex2}
 						/>
 						<Input
 							title = "target2_grade"
 							type = "text"
-							value = {grade2}
 						/>
 						<Input
 							title = "target2_relationship"
 							type = "text"
-							value = {relationship2}
 						/>
 						<p>
 							<label>hashed url</label>
-							<span>{hashed2}</span>
+							<span id="target2_hashed"></span>
 						</p>
 						<Button
 							id = "target2_save"
-							content = {(this.target2 == null) ? "register" : "save"}
+							content = ''
 							onClick = {this.event_target2_save}
 						/>
 					</div>
