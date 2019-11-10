@@ -7,8 +7,8 @@ import Select from './component/Select';
 class App extends React.Component {
 
 	state = {
-		prevPage: 'Logo',
-		currentPage: 'Logo',
+		prevPage: 'Game',
+		currentPage: 'Game',
 		user_info: null, // { name, email, ... }
 		user_type: null  // 'none', 'host', 'target'
 	};

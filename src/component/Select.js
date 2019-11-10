@@ -17,7 +17,7 @@ class Select extends React.Component {
 			case 'Logo':
 				setTimeout(() => {
 					this.props.goto('Start');
-				}, 1000);
+				}, 4000);
 				return <Logo/>;
 			case 'Start':
 				return <Start 
