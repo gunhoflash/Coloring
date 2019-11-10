@@ -22,7 +22,7 @@ class RegisterHost extends React.Component {
 		}
 		console.log(`register: ${email}, ${name}, ${age}, ${sex}`);
 
-		$.post('http://localhost:5000/createHost', {
+		$.post('http://' + window.location.hostname + ':5000/createHost', {
 			name  : name,
 			age   : age,
 			sex   : sex,

@@ -19,7 +19,7 @@ class Login extends React.Component {
 			return;
 		}
 
-		$.post('http://localhost:5000/getHostInfo', {
+		$.post('http://' + window.location.hostname + ':5000/getHostInfo', {
 			email : email,
 			name  : name
 		}, function (response) {

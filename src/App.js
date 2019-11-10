@@ -58,7 +58,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		axios.post('http://localhost:5000/id' + window.location.pathname).then(response => {
+		axios.post('http://' + window.location.hostname + ':5000/id' + window.location.pathname).then(response => {
 			let jsondata = JSON.parse(response.data.target);
 			let user_type;
 			console.log(jsondata);
