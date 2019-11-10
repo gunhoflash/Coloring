@@ -23,7 +23,7 @@ class ManageTarget extends React.Component {
 			return;
 		}
 		console.log(`register: ${name}, ${age}, ${sex}, ${grade}, ${relationship}`);
-		$.post('http://localhost:5000/manageTarget', {
+		$.post('http://' + window.location.hostname + ':5000/manageTarget', {
 			target_number: target_number,
 			name         : name,
 			age          : age,
