@@ -15,7 +15,6 @@ class Game extends React.Component {
             level:1, // 레벨
             tryNumber:4 // 레벨에 따라 출력되는 숫자가 많아짐
         }
-        this.setState({tryNumber:this.state.level+3});
     }
 
     componentDidMount(){
@@ -197,6 +196,8 @@ class Game extends React.Component {
                 console.log("level up!");
                 this.setState(prevState => ({ level:prevState.level + 1 }));
                 this.setState({score:0});
+                this.setState({tryNumber:this.state.level+3});
+                console.log(this.state.tryNumber);
             }
         }
     }
@@ -258,7 +259,8 @@ class Game extends React.Component {
                             <p>다음의 숫자와 색깔을 기억하세요!</p>
                             <p>&larr; 시작버튼을 눌러주세요</p>
                         </div>
-                        <p>점수:{this.state.score}</p>
+                            <p>레벨:{this.state.level}</p>
+                            <p>점수:{this.state.score}</p>
                     </div>
                 </div>
                 <div className="three">

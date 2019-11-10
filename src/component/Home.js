@@ -19,9 +19,6 @@ class Home extends React.Component {
 					goto = {this.props.goto.bind(this)}
 					src = "./img/title.png"
 				/>
-				<Bfore
-					goto = {this.props.goto.bind(this)}
-				/>
 				<After
 					value = "Game으로"
 					next = 'Game'
