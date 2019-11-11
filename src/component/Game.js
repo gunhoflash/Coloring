@@ -52,6 +52,8 @@ class Game extends React.Component {
 
         var text;
 
+        var timeout = null;
+
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
 
@@ -90,12 +92,20 @@ class Game extends React.Component {
             } );
         }
 
+        function resetTimeout() {
+            if (timeout == null) return;
+
+            clearTimeout(timeout);
+            timeout = null;
+        }
+
         function removeText(time){ // 출력된 text 없애기
             return new Promise(resolve=>{
-                setTimeout(function(){
+                timeout = setTimeout(function(){
                     resolve(20);
                     console.log("remove");
                     scene.remove(text);
+                    resetTimeout();
                 },time)
             })
         }
@@ -116,6 +126,7 @@ class Game extends React.Component {
 
         function resetGame(){ // 게임 재실행 (수정 필요!!)
             console.log("reset");
+            resetTimeout();
             startGameButton.style="display:block";
             resetGameButton.style="display:none";
             document.getElementsByClassName('three')[0].children[0].style="display:none";
