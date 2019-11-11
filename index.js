@@ -81,7 +81,7 @@ app.post('/manageTarget', (req, res) => { HostController.manageTarget(req, res);
 /*
 	FUNCTIONS - TARGET
 */
-app.put('/addScore',      (req, res) => { TargetController.addScore(req, res);   });
+app.post('/addScore',      (req, res) => { TargetController.addScore(req, res);   });
 
 // render 404, 500
 app.use((req, res, next) => { res.status(404).render('error/error', { errorcode: 404 }); });

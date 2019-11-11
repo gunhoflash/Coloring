@@ -62,8 +62,12 @@ class Select extends React.Component {
 				/>;
 			case 'Game':
 				return <Game
+					react_url = {this.props.react_url}
+					server_url = {this.props.server_url}
 					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
+					user_info = {this.props.user_info}
+					user_type = {this.props.user_type}
 				/>;
 			default:
 				console.log(`route default from ${this.props.currentPage}`);

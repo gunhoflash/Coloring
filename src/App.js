@@ -65,7 +65,10 @@ class App extends React.Component {
 			console.log(jsondata);
 			if (jsondata == null) {
 				jsondata = {
-					name: 'user' + String('0000' + Math.floor(Math.random() * 9999)).substr(-4)
+					name: 'user' + String('0000' + Math.floor(Math.random() * 9999)).substr(-4),
+					level: 1,
+					score: 0,
+					hashed: 'unknown'
 				};
 				user_type = 'none';
 			} else {
