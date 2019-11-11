@@ -3180,6 +3180,7 @@ button {
   position: relative; }
   .Logo .logo_box {
     display: flex;
+    justify-content: center;
     text-align: center; }
     .Logo .logo_box .lp_title {
       display: flex;
@@ -3202,12 +3203,21 @@ button {
     .Start .StartCommon .start_box.s_md {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      height: 45%;
+      justify-content: center;
+      height: 40%;
       text-align: center; }
       .Start .StartCommon .start_box.s_md p {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         color: #317094; }
+        @media screen and (min-width: 560px) {
+          .Start .StartCommon .start_box.s_md p {
+            font-size: 4rem; } }
+        @media screen and (min-width: 768px) {
+          .Start .StartCommon .start_box.s_md p {
+            font-size: 5rem; } }
+        @media screen and (min-width: 1024px) {
+          .Start .StartCommon .start_box.s_md p {
+            font-size: 6rem; } }
     .Start .StartCommon .start_btn {
       display: flex;
       height: 38%;
@@ -3215,19 +3225,28 @@ button {
       align-items: center;
       justify-content: center; }
       .Start .StartCommon .start_btn .After {
+        width: 80%;
         height: 90%;
-        width: 30%;
         animation: upAndDownS 2s infinite; }
+        @media screen and (min-width: 560px) {
+          .Start .StartCommon .start_btn .After {
+            width: 60%; } }
+        @media screen and (min-width: 768px) {
+          .Start .StartCommon .start_btn .After {
+            width: 50%; } }
+        @media screen and (min-width: 1024px) {
+          .Start .StartCommon .start_btn .After {
+            width: 40%; } }
 @keyframes upAndDownS {
   0% {
     height: 90%;
-    width: 30%; }
+    width: width; }
   20% {
     height: 100%;
-    width: 35%; }
+    width: width5%; }
   100% {
     height: 90%;
-    width: 30%; } }
+    width: width; } }
         .Start .StartCommon .start_btn .After button {
           font-size: 4rem;
           width: 100%;
@@ -3245,14 +3264,8 @@ button {
       left: 3%;
       animation: moveLinear 4s forwards;
       z-index: 100;
-      height: 25%; }
-@keyframes moveLinear {
-  0% {
-    left: 10px; }
-  50% {
-    left: 50%; }
-  100% {
-    left: 110%; } }
+      height: 25%;
+      animation-timing-function: ease-in-out; }
     .Start .StartCommon .Nav .Bfore {
       display: none; }
     .Start .StartCommon .Nav p {
@@ -3263,6 +3276,8 @@ button {
     position: absolute;
     bottom: 2%;
     right: 2%; }
+    .Start span button {
+      font-size: 1.2rem; }
 
 .popUp {
   position: relative; }
@@ -3273,7 +3288,7 @@ button {
     border-radius: 2rem;
     margin: 0; }
     .popUp .popup_box.box_one .pop_up_space {
-      margin: 10% 0 0 0;
+      margin: 20% 0 0 0;
       height: auto; }
       .popUp .popup_box.box_one .pop_up_space div {
         padding: 0; }
@@ -3406,10 +3421,10 @@ button {
     float: right; }
     .Nav .navi img {
       height: 100%; }
-  .Nav p {
-    color: #317094;
-    float: right;
-    font-size: 2.2rem; }
+    .Nav .navi p {
+      color: #317094;
+      float: right;
+      font-size: 2.2rem; }
   .Nav .nav_button {
     height: 130% !important;
     margin: 1%;
