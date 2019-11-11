@@ -19,8 +19,6 @@ class Game extends React.Component {
 
     componentDidMount(){
         /*game variable*/
-        var num=[]; // 출력할 숫자 변수 ( start에서의 변수만 저장됨 )
-
         var color_list ={ // 랜덤으로 나올 색상
             red:0xc9382a,
             blue:0x2658bd,
@@ -30,35 +28,34 @@ class Game extends React.Component {
             pupple:0xa322d6,
             pink:0xe374cd
         };
+        var num=[]; // 출력할 숫자 변수 ( start에서의 변수만 저장됨 )
         var color=[]; // 출력할 색상 변수 ( start에서의 변수만 저장됨 )
-
+        var ans;
         var startGameButton = document.getElementsByClassName('start_button')[0];
         var thisComponent = this;
         startGameButton.addEventListener("click", startGame.bind(thisComponent));
-        
         var resetGameButton = document.getElementsByClassName('reset_button')[0];
         resetGameButton.addEventListener("click", resetGame.bind(thisComponent));
 
         var explainText =  document.getElementsByClassName('instruct_text')[0].children[0].children[1];
-        
         /*game variable*/
 
         /*general object of three.js*/
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         scene.add(camera);
-
         var renderer = new THREE.WebGLRenderer({alpha:true});
         var renderObject =document.getElementsByClassName('three')[0];
         renderer.setSize(renderObject.offsetWidth,renderObject.offsetHeight);
         renderObject.appendChild( renderer.domElement );
-        
         camera.position.z=100;
 
         var text;
 
-        /*general object of three.js*/
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
 
+        /*general object of three.js*/
         function createText(create_num){ // text 생성
             console.log("text");
 
@@ -157,27 +154,19 @@ class Game extends React.Component {
                 num:num,
                 color:color
             });
+
+         // 정답 리스트들 순서섞기
+            ans = document.getElementsByClassName("answer")[0];
+            ans.style="order:"+String(Math.random()*5<<0);
+            for(var i=0; i<4; i++){
+                document.getElementsByClassName("wrong")[i].style="order:"+String(Math.random()*5<<0);
+            }
+            
         }
 
-        function animate() {
-            requestAnimationFrame( animate );
-            renderer.render( scene, camera );
-        };
-
-        window.onload=function(){
-            animate();
-        }
-        
-        
-        // 정답 리스트들 순서섞기
-        var ans = document.getElementsByClassName("answer")[0];
-        ans.style="order:"+String(Math.random()*5<<0);
-        for(var i=0; i<4; i++){
-            document.getElementsByClassName("wrong")[i].style="order:"+String(Math.random()*5<<0);
-        }
 
         // 정답 리스트들에 핸들러 엮기
-        ans.addEventListener("click",scoreup.bind(thisComponent))
+        document.getElementsByClassName("answer")[0].addEventListener("click",scoreup.bind(thisComponent))
         for(var i=0; i<4; i++){
             document.getElementsByClassName("wrong")[i].addEventListener("click",scoreup.bind(thisComponent))
         }
@@ -200,10 +189,21 @@ class Game extends React.Component {
                 console.log(this.state.tryNumber);
             }
         }
+
+        
+        function animate() {
+            requestAnimationFrame( animate );
+            renderer.render( scene, camera );
+        };
+
+        window.onload=function(){
+            animate();
+        }
     }
 
 
     render(){
+
         var num = this.state.num;
         var color = this.state.color;
         var answerString = "";

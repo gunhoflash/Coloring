@@ -8,7 +8,7 @@ class App extends React.Component {
 
 	state = {
 		prevPage: '',
-		currentPage: 'Game',
+		currentPage: 'Home',
 		user_info: null, // { name, email, ... }
 		user_type: null  // 'none', 'host', 'target'
 	};
