@@ -22,7 +22,7 @@ html {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
-  @media (min-width: 576px) {
+  @media (min-width: 567px) {
     .container {
       max-width: 540px; } }
   @media (min-width: 768px) {
@@ -64,8 +64,8 @@ html {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 0;
+  padding-left: 0; }
 
 .col {
   flex-basis: 0;
@@ -203,7 +203,7 @@ html {
 .offset-11 {
   margin-left: 91.6666666667%; }
 
-@media (min-width: 576px) {
+@media (min-width: 567px) {
   .col-sm {
     flex-basis: 0;
     flex-grow: 1;
@@ -861,7 +861,7 @@ html {
 .align-self-stretch {
   align-self: stretch !important; }
 
-@media (min-width: 576px) {
+@media (min-width: 567px) {
   .flex-sm-row {
     flex-direction: row !important; }
 
@@ -1296,7 +1296,7 @@ html {
 .d-inline-flex {
   display: inline-flex !important; }
 
-@media (min-width: 576px) {
+@media (min-width: 567px) {
   .d-sm-none {
     display: none !important; }
 
@@ -1773,7 +1773,7 @@ html {
 .mx-auto {
   margin-left: auto !important; }
 
-@media (min-width: 576px) {
+@media (min-width: 567px) {
   .m-sm-0 {
     margin: 0 !important; }
 
@@ -3173,7 +3173,93 @@ button {
   width: 100%;
   color: white;
   border-radius: 0.4rem;
-  background-color: #317094; }
+  background-color: #317094;
+  cursor: pointer; }
+
+.RegisterHost, .Login {
+  display: flex;
+  flex-direction: column; }
+  .RegisterHost .Bfore, .Login .Bfore {
+    flex: 1;
+    width: 10%;
+    min-width: 80px;
+    min-height: 80px;
+    height: 13%;
+    padding: 10px; }
+    .RegisterHost .Bfore button, .Login .Bfore button {
+      font-size: 1.5rem; }
+  .RegisterHost div:nth-child(2), .Login div:nth-child(2) {
+    flex: 4;
+    display: flex;
+    flex-direction: column; }
+    .RegisterHost div:nth-child(2) div, .Login div:nth-child(2) div {
+      margin-top: 15px;
+      margin-left: 20px; }
+    .RegisterHost div:nth-child(2) .Input, .Login div:nth-child(2) .Input {
+      flex: 1;
+      width: 85%;
+      display: flex;
+      flex-direction: column; }
+      @media screen and (min-width: 560px) {
+        .RegisterHost div:nth-child(2) .Input, .Login div:nth-child(2) .Input {
+          width: 95%; } }
+      .RegisterHost div:nth-child(2) .Input label, .Login div:nth-child(2) .Input label {
+        font-size: 1.5rem; }
+        @media screen and (min-width: 768px) {
+          .RegisterHost div:nth-child(2) .Input label, .Login div:nth-child(2) .Input label {
+            font-size: 2rem; } }
+      .RegisterHost div:nth-child(2) .Input input, .Login div:nth-child(2) .Input input {
+        padding-left: 3%;
+        height: 50%;
+        border: 1px solid #317094;
+        border-radius: 20px;
+        margin-top: 15px;
+        font-size: 1.3rem; }
+        .RegisterHost div:nth-child(2) .Input input:first-child, .Login div:nth-child(2) .Input input:first-child {
+          margin-top: 15px; }
+        .RegisterHost div:nth-child(2) .Input input:focus, .Login div:nth-child(2) .Input input:focus {
+          outline: none; }
+        @media screen and (min-width: 768px) {
+          .RegisterHost div:nth-child(2) .Input input, .Login div:nth-child(2) .Input input {
+            font-size: 1.8rem;
+            height: 60%; } }
+    .RegisterHost div:nth-child(2) .submit_btn, .Login div:nth-child(2) .submit_btn {
+      flex: 1;
+      width: 85%; }
+      @media screen and (min-width: 560px) {
+        .RegisterHost div:nth-child(2) .submit_btn, .Login div:nth-child(2) .submit_btn {
+          width: 95%; } }
+      .RegisterHost div:nth-child(2) .submit_btn button, .Login div:nth-child(2) .submit_btn button {
+        height: 80%;
+        font-size: 2rem; }
+
+.ManageTarget {
+  display: flex;
+  flex-direction: column; }
+  .ManageTarget .Bfore {
+    flex: 1;
+    width: 10%;
+    min-width: 80px;
+    min-height: 80px;
+    height: 13%;
+    padding: 10px; }
+    .ManageTarget .Bfore button {
+      font-size: 1.5rem; }
+  .ManageTarget .manage_form > div {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; }
+    .ManageTarget .manage_form > div p {
+      font-size: 2rem; }
+    .ManageTarget .manage_form > div label {
+      font-size: 1.5rem; }
+    .ManageTarget .manage_form > div input {
+      margin-top: 15px; }
+    .ManageTarget .manage_form > div button {
+      flex: 1;
+      width: 85%;
+      height: 80%;
+      font-size: 3rem; }
 
 .Logo {
   height: 100%;
@@ -3204,7 +3290,7 @@ button {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 40%;
+      height: 30%;
       text-align: center; }
       .Start .StartCommon .start_box.s_md p {
         font-size: 3.5rem;
@@ -3220,33 +3306,59 @@ button {
             font-size: 6rem; } }
     .Start .StartCommon .start_btn {
       display: flex;
-      height: 38%;
+      height: 35%;
       flex-direction: column;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      margin: 10px 0; }
+      @media screen and (min-width: 560px) {
+        .Start .StartCommon .start_btn {
+          margin: 20px 0; } }
+      @media screen and (min-width: 768px) {
+        .Start .StartCommon .start_btn {
+          margin: 30px 0; } }
       .Start .StartCommon .start_btn .After {
         width: 80%;
         height: 90%;
-        animation: upAndDownS 2s infinite; }
+        animation: upAndDownXS 2s infinite; }
         @media screen and (min-width: 560px) {
           .Start .StartCommon .start_btn .After {
-            width: 60%; } }
-        @media screen and (min-width: 768px) {
-          .Start .StartCommon .start_btn .After {
-            width: 50%; } }
+            width: 50%;
+            animation: upAndDownM 2s infinite; } }
         @media screen and (min-width: 1024px) {
           .Start .StartCommon .start_btn .After {
-            width: 40%; } }
-@keyframes upAndDownS {
+            width: 40%;
+            animation: upAndDownL 2s infinite; } }
+@keyframes upAndDownXS {
   0% {
     height: 90%;
-    width: width; }
+    width: 80%; }
   20% {
     height: 100%;
-    width: width5%; }
+    width: 90%; }
   100% {
     height: 90%;
-    width: width; } }
+    width: 80%; } }
+@keyframes upAndDownM {
+  0% {
+    height: 90%;
+    width: 50%; }
+  20% {
+    height: 100%;
+    width: 60%; }
+  100% {
+    height: 90%;
+    width: 50%; } }
+@keyframes upAndDownL {
+  0% {
+    height: 90%;
+    width: 40%; }
+  20% {
+    height: 100%;
+    width: 50%; }
+  100% {
+    height: 90%;
+    width: 40%; } }
         .Start .StartCommon .start_btn .After button {
           font-size: 4rem;
           width: 100%;
@@ -3266,11 +3378,9 @@ button {
       z-index: 100;
       height: 25%;
       animation-timing-function: ease-in-out; }
-    .Start .StartCommon .Nav .Bfore {
+    .Start .StartCommon .Nav .nav_button {
       display: none; }
-    .Start .StartCommon .Nav p {
-      display: none; }
-    .Start .StartCommon .Nav .inform {
+    .Start .StartCommon .Nav .navi p {
       display: none; }
   .Start span {
     position: absolute;
@@ -3284,44 +3394,69 @@ button {
   .popUp .popup_box {
     position: absolute;
     top: 0;
-    background-color: rgba(255, 255, 255, 0.315);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 2rem;
     margin: 0; }
     .popUp .popup_box.box_one .pop_up_space {
-      margin: 20% 0 0 0;
-      height: auto; }
+      margin: 50% 0 0 0;
+      height: auto;
+      justify-content: center; }
+      @media screen and (min-width: 560px) {
+        .popUp .popup_box.box_one .pop_up_space {
+          margin-top: 2%; } }
       .popUp .popup_box.box_one .pop_up_space div {
-        padding: 0; }
+        padding: 0;
+        text-align: center; }
       .popUp .popup_box.box_one .pop_up_space .pop_des {
         display: flex;
-        align-items: center; }
+        justify-content: center; }
         .popUp .popup_box.box_one .pop_up_space .pop_des p {
-          font-size: 4rem; }
+          font-size: 2.8rem; }
+          @media screen and (min-width: 560px) {
+            .popUp .popup_box.box_one .pop_up_space .pop_des p {
+              font-size: 3.5rem; } }
+          @media screen and (min-width: 1024px) {
+            .popUp .popup_box.box_one .pop_up_space .pop_des p {
+              font-size: 5.5rem; } }
       .popUp .popup_box.box_one .pop_up_space .emoball {
         width: 100%;
         height: auto; }
+        @media screen and (min-width: 560px) {
+          .popUp .popup_box.box_one .pop_up_space .emoball {
+            width: 55%; } }
       .popUp .popup_box.box_one .pop_up_space .pop_btn {
         text-align: center;
+        padding: 15px 0;
         display: flex;
         justify-content: space-around; }
         .popUp .popup_box.box_one .pop_up_space .pop_btn button {
           width: 40%;
-          font-size: 3rem;
+          font-size: 2rem;
           font-weight: 600;
           padding: 3% 0; }
-    .popUp .popup_box.box_two .pop_up_space .pop_img img {
-      width: 80%;
-      margin-left: 8%;
-      margin-top: 3%; }
+          @media screen and (min-width: 1024px) {
+            .popUp .popup_box.box_one .pop_up_space .pop_btn button {
+              font-size: 4rem; } }
+    .popUp .popup_box.box_two .pop_up_space .pop_img {
+      width: 100%;
+      height: auto; }
+      .popUp .popup_box.box_two .pop_up_space .pop_img img {
+        width: 80%;
+        margin-left: 8%;
+        margin-top: 3%; }
     .popUp .popup_box.box_two .pop_up_space .pop_des {
       display: flex;
+      height: auto;
+      width: 100%;
       align-items: center; }
+      .popUp .popup_box.box_two .pop_up_space .pop_des p {
+        padding-left: 10px; }
       .popUp .popup_box.box_two .pop_up_space .pop_des .main_p {
-        font-size: 4rem; }
+        font-size: 3.5rem; }
         .popUp .popup_box.box_two .pop_up_space .pop_des .main_p strong {
           color: #af3939; }
       .popUp .popup_box.box_two .pop_up_space .pop_des .sub_p {
-        font-size: 2rem; }
+        font-size: 1.8rem; }
     .popUp .popup_box.box_three .pop_up_space .pop_des {
       padding: 0 0 0 2%;
       display: flex;
@@ -3339,26 +3474,31 @@ button {
     .popUp .popup_box.box_five .pop_up_space {
       display: flex;
       flex-direction: column; }
+      .popUp .popup_box.box_five .pop_up_space div {
+        height: auto; }
       .popUp .popup_box.box_five .pop_up_space .pop_img {
-        text-align: center;
-        height: 40%; }
+        text-align: center; }
         .popUp .popup_box.box_five .pop_up_space .pop_img img {
-          height: 100%; }
+          width: 44%; }
       .popUp .popup_box.box_five .pop_up_space .pop_des {
-        height: 20%;
         text-align: center; }
         .popUp .popup_box.box_five .pop_up_space .pop_des p {
           font-size: 4rem; }
       .popUp .popup_box.box_five .pop_up_space .pop_btn {
-        height: 38%;
+        padding: 15px 0;
         display: flex;
         justify-content: space-around; }
+        @media screen and (min-width: 560px) {
+          .popUp .popup_box.box_five .pop_up_space .pop_btn {
+            flex-direction: column; } }
         .popUp .popup_box.box_five .pop_up_space .pop_btn > * {
           width: 40% !important; }
         .popUp .popup_box.box_five .pop_up_space .pop_btn button {
           font-size: 3rem;
           font-weight: 600;
           padding: 3% 0; }
+        .popUp .popup_box.box_five .pop_up_space .pop_btn div {
+          height: auto; }
 
 .Game {
   width: 100%;
@@ -3367,7 +3507,6 @@ button {
   flex-direction: column;
   align-items: center; }
   .Game .game_button {
-    display: flex;
     width: 80%;
     height: 10%; }
     .Game .game_button button {
@@ -3376,7 +3515,6 @@ button {
       .Game .game_button button.reset_button {
         display: none; }
     .Game .game_button .instruct_text {
-      padding-left: 3%;
       font-size: 1.8rem;
       line-height: 34px;
       display: flex; }
@@ -3416,22 +3554,46 @@ button {
 .Nav {
   height: 10% !important; }
   .Nav .navi {
-    width: auto;
-    height: 100%;
+    width: 80%;
+    height: 90%;
     float: right; }
     .Nav .navi img {
-      height: 100%; }
-    .Nav .navi p {
-      color: #317094;
-      float: right;
-      font-size: 2.2rem; }
+      height: 100%;
+      max-width: 100%;
+      float: right; }
   .Nav .nav_button {
-    height: 130% !important;
     margin: 1%;
     float: left;
-    width: 7% !important; }
+    width: 7% !important;
+    min-width: 50px;
+    min-height: 50px; }
     .Nav .nav_button button {
       height: 100%; }
+
+.Home .game_box {
+  height: auto;
+  margin-top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  text-align: center; }
+  @media screen and (min-width: 560px) {
+    .Home .game_box {
+      margin-top: 0;
+      width: 80%; } }
+  .Home .game_box img {
+    width: 100%; }
+    @media screen and (min-width: 560px) {
+      .Home .game_box img {
+        width: 50%; } }
+.Home .After {
+  height: 60px;
+  margin: 10px auto; }
+  @media screen and (min-width: 560px) {
+    .Home .After {
+      width: 80%; } }
+  .Home .After button {
+    font-size: 1.4rem; }
 
 .row {
   margin: 0; }

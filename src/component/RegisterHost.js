@@ -39,31 +39,35 @@ class RegisterHost extends React.Component {
 	render () {
 		return (
 			<div className="RegisterHost">
-				This is RegisterHost component!
 				<Bfore
 					goto = {this.props.goto.bind(this)}
 				/>
-				<Input
-					title = "login_email"
-					type = "email"
-				/>
-				<Input
-					title = "login_name"
-					type = "text"
-				/>
-				<Input
-					title = "login_age"
-					type = "number"
-				/>
-				<Input
-					title = "login_sex"
-					type = "text"
-				/>
-				<Button
-					id = 'register'
-					content = 'register'
-					onClick = {this.event_register}
-				/>
+				
+				<div className="register_form">
+					<Input
+						title = "login_email"
+						type = "email"
+					/>
+					<Input
+						title = "login_name"
+						type = "text"
+					/>
+					<Input
+						title = "login_age"
+						type = "number"
+					/>
+					<Input
+						title = "login_sex"
+						type = "text"
+					/>
+					<div className="submit_register submit_btn">
+						<Button
+							id = 'register'
+							content = 'register'
+							onClick = {this.event_register}
+						/>
+					</div>
+				</div>
 			</div>
 		)
 	}

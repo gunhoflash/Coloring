@@ -13,17 +13,19 @@ class Home extends React.Component {
 					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
 					/>
-				<ImgClickable
-					classNames = "game_list"
-					next = "Game"
-					goto = {this.props.goto.bind(this)}
-					src = "./img/title.png"
-				/>
-				<After
-					value = "Game으로"
-					next = 'Game'
-					goto = {this.props.goto.bind(this)}
-				/>
+				<div className="game_box">
+					<ImgClickable
+						classNames = "game_list"
+						next = "Game"
+						goto = {this.props.goto.bind(this)}
+						src = "./img/numberGame.png"
+					/>
+					<After
+						value = "숫자게임"
+						next = 'Game'
+						goto = {this.props.goto.bind(this)}
+					/>
+				</div>
 			</div>
 		)
 	}

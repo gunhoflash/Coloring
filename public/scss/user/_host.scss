@@ -1,0 +1,108 @@
+.RegisterHost, .Login{
+    display: flex;
+    flex-direction: column;
+    .Bfore{
+        flex:1;
+        width: 10%;
+        min-width: 80px;
+        min-height: 80px;
+        height: 13%;
+        padding: 10px;
+        button{
+            font-size: 1.5rem;
+        }
+    }
+    div:nth-child(2){
+        flex:4;
+        display: flex;
+        flex-direction: column;
+        div{
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+        .Input{     
+            flex:1;
+            width: 85%;
+            display: flex;
+            flex-direction: column;
+            @media screen and (min-width:560px) {
+                width: 95%;
+            }
+            label{
+                font-size: 1.5rem;
+                @media screen and (min-width:768px) {
+                    font-size: 2rem;
+                }
+            }
+            input{
+                &:first-child{
+                    margin-top: 15px;
+                }
+                &:focus{
+                    outline:none;
+                }
+                padding-left: 3%;
+                height: 50%;
+                border: 1px solid $blue_c;
+                border-radius: 20px;
+                margin-top: 15px;
+                font-size: 1.3rem;
+                
+                @media screen and (min-width:768px) {
+                    font-size: 1.8rem;
+                    height: 60%;
+                }
+            }
+        }
+        .submit_btn{
+            flex:1;
+            width: 85%;
+            @media screen and (min-width:560px) {
+                width: 95%;
+            }
+            button{
+                height: 80%;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.ManageTarget{
+    display: flex;
+    flex-direction: column;
+    .Bfore{
+        flex:1;
+        width: 10%;
+        min-width: 80px;
+        min-height: 80px;
+        height: 13%;
+        padding: 10px;
+        button{
+            font-size: 1.5rem;
+        }
+    }
+    .manage_form{
+        &>div{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            p{
+                font-size: 2rem;
+            }
+            label{
+                font-size: 1.5rem;
+            }
+            input{
+                margin-top: 15px;
+            }
+            button{
+                flex: 1;
+                width: 85%;
+                height: 80%;
+                font-size: 3rem;
+            }
+        }
+    }
+    
+}

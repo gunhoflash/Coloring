@@ -3,36 +3,55 @@
     .popup_box{
         position: absolute;
         top:0;
-        background-color: rgba(255, 255, 255, 0.315);
+        background-color: rgba(255, 255, 255, 0.8);
         border-radius: 2rem;
         margin:0;
         &.box_one{
             .pop_up_space{
-                margin: 20% 0 0 0;
+                margin: 50% 0 0 0;
                 height: auto;
+                justify-content: center;
+                @media screen and (min-width:560px) {
+                    margin-top:2%;
+                }
                 div{
                     padding:0;
+                    text-align: center;
                 }
                 .pop_des{
                     display: flex;
-                    align-items: center;
+                    justify-content: center;
                     p{           
-                        font-size: 4rem;
+                        font-size: 2.8rem;
+                        @media screen and (min-width:560px) {
+                            font-size: 3.5rem;
+                        }
+                        @media screen and (min-width:1024px) {
+                            font-size: 5.5rem;
+                        }
                     }
                 }
                 .emoball{
                     width: 100%;
                     height: auto;
+                    @media screen and (min-width:560px) {
+                        width:55%;
+                    }
                 }
                 .pop_btn{
                     text-align: center;
+                    padding: 15px 0;
                     display: flex;
                     justify-content: space-around;
                     button{
                         width: 40%;
-                        font-size: 3rem;
+                        font-size: 2rem;
                         font-weight: 600;
                         padding: 3% 0;
+                        
+                        @media screen and (min-width:1024px) {
+                            font-size: 4rem;
+                        }
                     }
                 }
             }
@@ -40,6 +59,8 @@
         &.box_two{
             .pop_up_space{
                 .pop_img{
+                    width:100%;
+                    height: auto;
                     img{
                         width:80%;
                         margin-left: 8%;
@@ -48,15 +69,20 @@
                 }
                 .pop_des{
                     display: flex;
+                    height: auto;
+                    width:100%;
                     align-items: center;
+                    p{
+                        padding-left:10px;
+                    }
                     .main_p{
-                        font-size: 4rem;
+                        font-size: 3.5rem;
                         strong{
                             color:$red_c;
                         }
                     }
                     .sub_p{
-                        font-size:2rem;
+                        font-size:1.8rem;
                     }
                 }
             }
@@ -88,24 +114,28 @@
             .pop_up_space{
                 display: flex;
                 flex-direction: column;
+                div{
+                    height:auto;
+                }
                 .pop_img{
                     text-align: center;
-                    height:40%;
                     img{
-                        height:100%;
+                        width:44%;
                     }
                 }
                 .pop_des{
-                    height: 20%;
                     text-align: center;
                     p{
                         font-size:4rem;
                     }
                 }
                 .pop_btn{
-                    height: 38%;
+                    padding: 15px 0;
                     display: flex;
                     justify-content: space-around;
+                    @media screen and (min-width:560px) {
+                        flex-direction: column;
+                    }
                     &>*{
                         width: 40%!important;
                     }
@@ -113,6 +143,9 @@
                         font-size: 3rem;
                         font-weight: 600;
                         padding: 3% 0;
+                    }
+                    div{
+                        height:auto;
                     }
                 }
             }
