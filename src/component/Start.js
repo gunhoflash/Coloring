@@ -39,21 +39,23 @@ class Start extends React.Component {
 				null
 				:
 					(this.props.user_type == 'host') ?
-					<Button
-						id = 'manage_target'
-						content = 'manage target'
-						onClick = {this.event_manage_target}
-					/>
+					<span>
+						<Button
+							id = 'manage_target'
+							content = 'manage target'
+							onClick = {this.event_manage_target}
+						/>
+					</span>
 						:
 					<span>
 						<Button
 							id = 'login'
-							content = 'login'
+							content = '로그인'
 							onClick = {this.event_login}
 						/>
 						<Button
 							id = 'register'
-							content = 'register'
+							content = '등록'
 							onClick = {this.event_register}
 						/>
 					</span>

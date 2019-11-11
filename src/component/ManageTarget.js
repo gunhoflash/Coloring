@@ -106,11 +106,10 @@ class ManageTarget extends React.Component {
 	render () {
 		return (
 			<div className="ManageTarget">
-				This is ManageTarget component!
 				<Bfore
 					goto = {this.props.goto.bind(this)}
 				/>
-				<div style={{display:'flex'}}>
+				<div className="manage_form" style={{display:'flex'}}>
 					<div>
 						<p>Target 1</p>
 						<Input
@@ -137,11 +136,14 @@ class ManageTarget extends React.Component {
 							<label>hashed url</label>
 							<span id="target1_hashed"></span>
 						</p>
-						<Button
-							id = "target1_save"
-							content = ''
-							onClick = {this.event_target1_save}
-						/>
+						
+						<div className="submit_manage submit_btn">
+							<Button
+								id = "target1_save"
+								content = ''
+								onClick = {this.event_target1_save}
+							/>
+						</div>
 					</div>
 					<div>
 						<p>Target 2</p>
@@ -169,11 +171,14 @@ class ManageTarget extends React.Component {
 							<label>hashed url</label>
 							<span id="target2_hashed"></span>
 						</p>
-						<Button
-							id = "target2_save"
-							content = ''
-							onClick = {this.event_target2_save}
-						/>
+						
+						<div className="submit_manage submit_btn">
+							<Button
+								id = "target2_save"
+								content = ''
+								onClick = {this.event_target2_save}
+							/>
+						</div>	
 					</div>
 				</div>
 			</div>

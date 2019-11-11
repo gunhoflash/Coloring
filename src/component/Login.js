@@ -38,7 +38,7 @@ class Login extends React.Component {
 				<Bfore
 					goto = {this.props.goto.bind(this)}
 				/>
-				<div>
+				<div className="login_form">
 					<Input
 						title = "login_email"
 						type = "email"
@@ -47,7 +47,9 @@ class Login extends React.Component {
 						title = "login_name"
 						type = "text"
 					/>
-					<button id="button_login" onClick={this.event_post_login}></button>
+					<div className="submit_login submit_btn">
+						<button id="button_login" onClick={this.event_post_login}>login</button>
+					</div>
 				</div>
 			</div>
 		);

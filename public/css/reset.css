@@ -50,6 +50,7 @@ border-spacing:0;
 
 body { /*대신 미디어쿼리로 조절*/
     -webkit-text-size-adjust: none;
+    overflow: hidden;
 }
 
 input{/*input 태그 초기화*/
@@ -58,9 +59,7 @@ padding:0;
 vertical-align:top;
 appearance:none;
 border-radius:0; 
-border: none;
 background-color: transparent;
-border:0;
 }
 
   
