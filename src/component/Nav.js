@@ -6,10 +6,6 @@ class Nav extends React.Component {
 	render() {
 		return (
 			<div className="Nav">
-				<div className="navi">
-					<img src="/img/title.png" alt="title"/>
-				</div>
-				<p>OOO님</p>
 				<div className="nav_button">
 					<Bfore
 						goto = {this.props.goto.bind(this)}
@@ -17,6 +13,10 @@ class Nav extends React.Component {
 					<div className="inform">
 						<button type="button">?</button>
 					</div>
+				</div>
+				<div className="navi">
+					<img src="/img/title.png" alt="title"/>
+					<p>OOO님</p>
 				</div>
 			</div>
 		);

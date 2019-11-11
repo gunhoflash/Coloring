@@ -7,12 +7,21 @@
             &.s_md{
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                height: 45%;
+                justify-content: center;
+                height: 40%;
                 text-align: center;
                 p{
-                    font-size: 4.5rem;
+                    font-size: 3.5rem;
                     color: $blue_c;
+                    @media screen and (min-width:560px) {
+                        font-size: 4rem;
+                    }
+                    @media screen and (min-width:768px) {
+                        font-size: 5rem;
+                    }
+                    @media screen and (min-width:1024px) {
+                        font-size: 6rem;
+                    }
                 }
             }
         }
@@ -23,22 +32,35 @@
             align-items: center;
             justify-content: center;
             .After{         
-                height: 90%;
-                width: 30%;
-                animation: upAndDownS 2s infinite;
+                width: 80%;
+                @media screen and (min-width:560px) {
+                    width: 60%;
+                }
+                @media screen and (min-width:768px) {
+                    width: 50%;
+                }
+                @media screen and (min-width:1024px) {
+                    width: 40%;
+                }
 
+                $width:width;
+                $width_plus:width+5%;
+
+                height: 90%;
+                animation: upAndDownS 2s infinite;
+                
                 @keyframes upAndDownS {
                     0% {
                         height: 90%;
-                        width: 30%;
+                        width: $width;
                     }
                     20% {
                         height: 100%;
-                        width: 35%;
+                        width: $width_plus;
                     }
                     100% {
                         height: 90%;
-                        width: 30%;
+                        width: $width;
                     }
                 }
                 button{
@@ -62,17 +84,9 @@
             animation: moveLinear 4s forwards;
             z-index: 100;
             height: 25%;
+            animation-timing-function:ease-in-out;
         
             @keyframes moveLinear { // change to three.js
-                0% {
-                    left: 10px;
-                }
-                50% {
-                    left: 50%;
-                }
-                100% {
-                    left: 110%;
-                }
             }
         }
 
@@ -92,6 +106,9 @@
         position: absolute;
         bottom: 2%;
         right: 2%;
+        button{
+            font-size: 1.2rem;
+        }
     }
 
 }
