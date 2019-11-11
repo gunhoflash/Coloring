@@ -3,12 +3,12 @@ import axios from 'axios';
 
 import Select from './component/Select';
 
-
 class App extends React.Component {
 
 	state = {
-		prevPage: '',
-		currentPage: 'Home',
+		react_url: '',
+		server_url: '',
+		currentPage: 'Logo',
 		user_info: null, // { name, email, ... }
 		user_type: null  // 'none', 'host', 'target'
 	};
@@ -53,12 +53,13 @@ class App extends React.Component {
 
 		this.setState({
 			currentPage: currentPage,
-			prevPage: prevPage
 		});
 	}
 
 	componentDidMount() {
-		axios.post('http://' + window.location.hostname + ':5000/id' + window.location.pathname).then(response => {
+		let react_url  = 'http://' + window.location.hostname + ':3000';
+		let server_url = 'http://' + window.location.hostname + ':5000';
+		axios.post(server_url + '/id' + window.location.pathname).then(response => {
 			let jsondata = JSON.parse(response.data.target);
 			let user_type;
 			console.log(jsondata);
@@ -71,6 +72,8 @@ class App extends React.Component {
 				user_type = 'target';
 			}
 			this.setState({
+				react_url: react_url,
+				server_url: server_url,
 				user_info: jsondata,
 				user_type: user_type
 			});
@@ -82,6 +85,8 @@ class App extends React.Component {
 		return (
 			<div className = "component">
 				<Select
+				react_url = {this.state.react_url}
+				server_url = {this.state.server_url}
 				currentPage = {this.state.currentPage}
 				goto = {this.goto.bind(this)}
 				set_user = {this.set_user.bind(this)}

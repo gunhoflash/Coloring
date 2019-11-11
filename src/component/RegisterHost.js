@@ -22,7 +22,7 @@ class RegisterHost extends React.Component {
 		}
 		console.log(`register: ${email}, ${name}, ${age}, ${sex}`);
 
-		$.post('http://' + window.location.hostname + ':5000/createHost', {
+		$.post(this.props.server_url + '/createHost', {
 			name  : name,
 			age   : age,
 			sex   : sex,
@@ -70,6 +70,8 @@ class RegisterHost extends React.Component {
 }
 
 RegisterHost.propTypes = {
+	react_url: PropTypes.string.isRequired,
+	server_url: PropTypes.string.isRequired,
 	currentPage: PropTypes.string.isRequired,
 	goto: PropTypes.func.isRequired,
 };

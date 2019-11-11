@@ -38,17 +38,23 @@ class Select extends React.Component {
 				/>;
 			case 'Login':
 				return <Login
+					react_url = {this.props.react_url}
+					server_url = {this.props.server_url}
 					currentPage = {this.props.currentPage}
 					set_user = {this.props.set_user.bind(this)}
 					goto = {this.props.goto.bind(this)}
 				/>;
 			case 'RegisterHost':
 				return <RegisterHost
+					react_url = {this.props.react_url}
+					server_url = {this.props.server_url}
 					currentPage = {this.props.currentPage}
 					goto = {this.props.goto.bind(this)}
 				/>;
 			case 'ManageTarget':
 				return <ManageTarget
+					react_url = {this.props.react_url}
+					server_url = {this.props.server_url}
 					currentPage = {this.props.currentPage}
 					update_target = {this.props.update_target.bind(this)}
 					goto = {this.props.goto.bind(this)}
@@ -68,6 +74,8 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
+	react_url: PropTypes.string.isRequired,
+	server_url: PropTypes.string.isRequired,
 	currentPage: PropTypes.string.isRequired,
 	set_user: PropTypes.func.isRequired,
 	update_target: PropTypes.func.isRequired,

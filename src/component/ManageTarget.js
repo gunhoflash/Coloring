@@ -23,7 +23,7 @@ class ManageTarget extends React.Component {
 			return;
 		}
 		console.log(`register: ${name}, ${age}, ${sex}, ${grade}, ${relationship}`);
-		$.post('http://' + window.location.hostname + ':5000/manageTarget', {
+		$.post(this.props.server_url + '/manageTarget', {
 			target_number: target_number,
 			name         : name,
 			age          : age,
@@ -67,7 +67,7 @@ class ManageTarget extends React.Component {
 		const t2 = this.props.user_info.target2; 
 		let hashed1, hashed2, name1, name2, age1, age2, sex1, sex2, grade1, grade2, relationship1, relationship2, button1, button2;
 
-		hashed1       = t1 ? t1.hashed       :         '';
+		hashed1       = t1 ? this.props.react_url + '/' + t1.hashed : '';
 		name1         = t1 ? t1.name         :         '';
 		age1          = t1 ? t1.age          :          0;
 		sex1          = t1 ? t1.sex          :         '';
@@ -75,7 +75,7 @@ class ManageTarget extends React.Component {
 		relationship1 = t1 ? t1.relationship :         '';
 		button1       = t1 ? 'save'          : 'register';
 
-		hashed2       = t2 ? t2.hashed       :         '';
+		hashed2       = t2 ? this.props.react_url + '/' + t2.hashed : '';
 		name2         = t2 ? t2.name         :         '';
 		age2          = t2 ? t2.age          :          0;
 		sex2          = t2 ? t2.sex          :         '';
@@ -182,6 +182,8 @@ class ManageTarget extends React.Component {
 }
 
 ManageTarget.propTypes = {
+	react_url: PropTypes.string.isRequired,
+	server_url: PropTypes.string.isRequired,
 	currentPage: PropTypes.string.isRequired,
 	update_target: PropTypes.func.isRequired,
 	goto: PropTypes.func.isRequired,

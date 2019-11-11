@@ -19,7 +19,7 @@ class Login extends React.Component {
 			return;
 		}
 
-		$.post('http://' + window.location.hostname + ':5000/getHostInfo', {
+		$.post(this.props.server_url + '/getHostInfo', {
 			email : email,
 			name  : name
 		}, function (response) {
@@ -55,6 +55,8 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
+	react_url: PropTypes.string.isRequired,
+	server_url: PropTypes.string.isRequired,
 	currentPage: PropTypes.string.isRequired,
 	set_user: PropTypes.func.isRequired,
 	goto: PropTypes.func.isRequired
