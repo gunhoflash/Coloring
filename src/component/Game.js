@@ -208,9 +208,22 @@ class Game extends React.Component {
 
 		function submit(e) {
 			if (e.target.className === "answer") {
+				show_popup_score();
 				this.request_add_score(1);
 			}
 			resetGame();
+		}
+
+		function show_popup_score() {
+			if ($('#popup_score').length == 0) return;
+			$('#popup_score').addClass('show').removeClass('hide');
+			setTimeout(function () {
+				hide_popup_score();
+			}, 1000);
+		}
+		function hide_popup_score() {
+			if ($('#popup_score').length == 0) return;
+			$('#popup_score').addClass('hide').removeClass('show');
 		}
 
 		function animate() {
@@ -288,6 +301,7 @@ class Game extends React.Component {
 						{wrongAnswer[3]}
 					</div>
 				</div>
+				<div id="popup_score" className="fixed-popup show">+1점</div>
 				<script src="build/three.js" type="module"></script>
 				<script src="src/loaders/FontLoader.js" type="module"></script>
 			</div>
