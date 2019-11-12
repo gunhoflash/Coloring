@@ -1,5 +1,6 @@
 .Nav{
     height: 10%!important;
+    z-index:1;
     .navi{
         width: 80%;
         height: 90%;
@@ -18,6 +19,14 @@
         min-height: 50px;
         & button{
             height:100%;
+        }
+    }
+    #PopupInform{
+        &.hide{
+            display:none;
+        }
+        &.show{
+            display:block;
         }
     }
 }

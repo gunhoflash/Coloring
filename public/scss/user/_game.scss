@@ -4,30 +4,117 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .game_button{
-        width:80%;
-        height: 10%;
-        button{
-            width:10%;
+    position: relative;
+    .Nav{
+        #PopupInform{
+            position: absolute;
+            top: 120px;
             height: auto;
+            display: flex;
+            flex-direction: column;
+            border: 5px solid $red_c;
+            @media screen and (min-width:560px) {
+                top:10px;
+            }
+            h3{
+                @media screen and (min-width:1024px) {
+                    font-size: 3rem;
+                }
+            }
+            ol{
+                padding: 3% 0;
+                li{
+                    &:first-child{
+                        padding: 0;
+                    }
+                    padding-top: 3%;
+                    font-size: 1.3rem;
+                    @media screen and (min-width:1024px) {
+                        font-size:2rem;
+                    }
+                }
+            }
+            button{
+                height: 40px;
+                
+                @media screen and (min-width:1024px) {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+    .game_button{
+        height:auto;
+        padding: 0 2%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @media screen and (min-width:560px) {
+            padding: 0 12%;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        button{
+            width:30%;
+            margin:3% 0;
+            min-height: 70px;
+            height: auto;
+            @media screen and (min-width:560px) {
+                width: 15%;
+                margin:0;
+                font-size: 1.1rem;
+            }
+            @media screen and (min-width:1024px) {
+                font-size: 2rem;
+            }
             &.reset_button{
                 display: none;
             }
         }
         .instruct_text{
-            font-size: 1.8rem;
+            height: auto;
+            padding: 2% 0;
             line-height: 34px;
             display: flex;
-            div{
-                width:80%;
+            flex-direction: column;
+            @media screen and (min-width:560px) {
+                width:85%;
+                padding: 0 3%;
+            }
+            &>div{
+                display: flex;
+                height: auto;
+                .allow{
+                    display: none;
+                    @media screen and (min-width:560px) {
+                        display:block;
+                    }
+                }
+                &.scoreLevel{
+                    @media screen and (min-width:1024px) {
+                        padding:3% 0;
+                    }
+                    p{
+                        padding: 0 2%;
+                        width: 25%;
+                        @media screen and (min-width:1024px) {
+                            width: 15%;
+                        }
+                    }
+                }
+            }
+            p{
+                font-size: 1.5rem;
+                @media screen and (min-width:560px) {
+                    font-size: 1.35rem;
+                }
+                @media screen and (min-width:1024px) {
+                    font-size: 2rem;
+                }
             }
         }
     }
     .three{
-        height:80%;
-        width: 80%;
-        margin: 10px auto;
-        border-radius: 30px;
         overflow: hidden;
         display: flex;
         justify-content: center;
@@ -37,13 +124,15 @@
             position: absolute;
         }
         .example{
-            width:80%;
             display: none;
             position: absolute;
             flex-direction: column;
             button{
-                font-size:3rem;
+                font-size:1.35rem;
                 height: 20%;
+                @media screen and (min-width:1024px) {
+                    font-size:2rem;
+                }
                 &.answer{
                     order:1;
                 }
@@ -60,6 +149,21 @@
                     order:5;
                 }
             }
+        }
+    }
+    .fixed-popup{
+        position: absolute;
+        top: 43%;
+        font-size: 2rem;
+        background-color: $blue_c;
+        color: white;
+        border-radius: 20px;
+        padding: 20px;
+        &.hide{
+            display: none;
+        }
+        &.show{
+            display: block;
         }
     }
 }

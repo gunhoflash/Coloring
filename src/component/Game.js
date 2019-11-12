@@ -50,7 +50,7 @@ class Game extends React.Component {
 		var resetGameButton = document.getElementsByClassName('reset_button')[0];
 		resetGameButton.addEventListener("click", resetGame.bind(this));
 
-		var explainText = document.getElementsByClassName('instruct_text')[0].children[0].children[1];
+		var explainText = document.getElementsByClassName('instruct_text')[0].children[1];
 		/*game variable*/
 
 		/*general object of three.js*/
@@ -131,7 +131,8 @@ class Game extends React.Component {
 			console.log(document.getElementsByClassName('three')[0].children[0]);
 			document.getElementsByClassName('three')[0].children[0].style = "display:flex";
 			document.getElementsByClassName('three')[0].children[1].style = "display:none";
-			explainText.innerHTML = "아래의 보기 중 하나를 선택해주세요";
+			explainText.children[0].style = "display:none";
+			explainText.children[1].innerHTML = "아래의 보기 중 하나를 선택해주세요";
 		}
 
 		// 랜덤 색상을 리스트에서 뽑아주는 코드
@@ -159,7 +160,8 @@ class Game extends React.Component {
 			resetGameButton.style = "display:none";
 			document.getElementsByClassName('three')[0].children[0].style = "display:none";
 			document.getElementsByClassName('three')[0].children[1].style = "display:none";
-			explainText.innerHTML = "&larr; 시작버튼을 눌러주세요"
+			explainText.children[0].style = "display:block";
+			explainText.children[1].innerHTML = "시작버튼을 눌러주세요"
 		}
 
 		// start에서의 숫자 : num, 색상 : color 에 저장
@@ -169,7 +171,8 @@ class Game extends React.Component {
 			resetGameButton.style = "display:block";
 			document.getElementsByClassName('three')[0].children[0].style = "display:none";
 			document.getElementsByClassName('three')[0].children[1].style = "display:block";
-			explainText.innerHTML = "";
+			explainText.children[0].style = "display:none";
+			explainText.children[1].innerHTML = "";
 
 			var num   = []; // 출력할 숫자 변수
 			var color = []; // 출력할 색상 변수
@@ -284,12 +287,12 @@ class Game extends React.Component {
 					<button className="start_button">시작</button>
 					<button className="reset_button">다시하기</button>
 					<div className="instruct_text">
-						<div>
-							<p>다음의 숫자와 색깔을 기억하세요!</p>
-							<p>&larr; 시작버튼을 눌러주세요</p>
+						<p>다음의 숫자를 기억하세요!</p>
+						<div><p className="allow">&larr;</p><p>시작버튼을 눌러주세요</p></div>
+						<div className="scoreLevel">
+							<p>{"레벨:"+this.state.level}</p>
+							<p>{"점수:"+this.state.score}</p>
 						</div>
-						<p>레벨:{this.state.level}</p>
-						<p>점수:{this.state.score}</p>
 					</div>
 				</div>
 				<div className="three">
@@ -301,7 +304,7 @@ class Game extends React.Component {
 						{wrongAnswer[3]}
 					</div>
 				</div>
-				<div id="popup_score" className="fixed-popup show">+1점</div>
+				<span id="popup_score" className="fixed-popup hide">+1점</span>
 				<script src="build/three.js" type="module"></script>
 				<script src="src/loaders/FontLoader.js" type="module"></script>
 			</div>

@@ -132,10 +132,10 @@ class ManageTarget extends React.Component {
 							title = "target1_relationship"
 							type = "text"
 						/>
-						<p>
+						<div className="hash_con">
 							<label>hashed url</label>
-							<span id="target1_hashed"></span>
-						</p>
+							<div id="target1_hashed"></div>
+						</div>
 						
 						<div className="submit_manage submit_btn">
 							<Button

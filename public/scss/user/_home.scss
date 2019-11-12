@@ -1,4 +1,9 @@
 .Home{
+    .Nav{
+        .inform{
+            display:none;
+        }
+    }
     .game_box{
         height: auto;
         margin-top: 50%;
@@ -22,6 +27,9 @@
         margin:10px auto;
         @media screen and (min-width:560px) {
             width:80%;
+        }
+        @media screen and (min-width:1024px) {
+            height: 100px;
         }
         button{
             font-size: 1.4rem;

@@ -12,10 +12,10 @@ class Nav extends React.Component {
 	}
 
 	show_inform() {
-		$('#PopupInform').addClass('show'); // show
+		$('#PopupInform').addClass('show').removeClass('hide'); // show
 	}
 	hide_inform() {
-		$('#PopupInform').addClass('hide'); // show
+		$('#PopupInform').addClass('hide').removeClass('show'); // hide
 	}
 
 	render() {
@@ -31,7 +31,6 @@ class Nav extends React.Component {
 				</div>
 				<div className="navi">
 					<img src="/img/title.png" alt="title"/>
-					<p>OOO님</p>
 				</div>
 
 				<div id="PopupInform" className="fixed-popup hide">

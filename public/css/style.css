@@ -3179,24 +3179,24 @@ button {
 .RegisterHost, .Login {
   display: flex;
   flex-direction: column; }
+  @media screen and (min-width: 560px) {
+    .RegisterHost, .Login {
+      flex-direction: row; } }
   .RegisterHost .Bfore, .Login .Bfore {
-    flex: 1;
-    width: 10%;
+    width: 5%;
     min-width: 80px;
     min-height: 80px;
-    height: 13%;
+    height: 15%;
     padding: 10px; }
     .RegisterHost .Bfore button, .Login .Bfore button {
       font-size: 1.5rem; }
   .RegisterHost div:nth-child(2), .Login div:nth-child(2) {
-    flex: 4;
     display: flex;
     flex-direction: column; }
     .RegisterHost div:nth-child(2) div, .Login div:nth-child(2) div {
       margin-top: 15px;
       margin-left: 20px; }
     .RegisterHost div:nth-child(2) .Input, .Login div:nth-child(2) .Input {
-      flex: 1;
       width: 85%;
       display: flex;
       flex-direction: column; }
@@ -3224,7 +3224,6 @@ button {
             font-size: 1.8rem;
             height: 60%; } }
     .RegisterHost div:nth-child(2) .submit_btn, .Login div:nth-child(2) .submit_btn {
-      flex: 1;
       width: 85%; }
       @media screen and (min-width: 560px) {
         .RegisterHost div:nth-child(2) .submit_btn, .Login div:nth-child(2) .submit_btn {
@@ -3236,6 +3235,9 @@ button {
 .ManageTarget {
   display: flex;
   flex-direction: column; }
+  @media screen and (min-width: 560px) {
+    .ManageTarget {
+      flex-direction: row; } }
   .ManageTarget .Bfore {
     flex: 1;
     width: 10%;
@@ -3248,18 +3250,40 @@ button {
   .ManageTarget .manage_form > div {
     display: flex;
     flex-direction: column;
-    padding: 20px; }
+    padding: 0 20px; }
     .ManageTarget .manage_form > div p {
       font-size: 2rem; }
-    .ManageTarget .manage_form > div label {
-      font-size: 1.5rem; }
-    .ManageTarget .manage_form > div input {
-      margin-top: 15px; }
-    .ManageTarget .manage_form > div button {
-      flex: 1;
+    .ManageTarget .manage_form > div .Input {
       width: 85%;
-      height: 80%;
-      font-size: 3rem; }
+      display: flex;
+      flex-direction: column; }
+      @media screen and (min-width: 560px) {
+        .ManageTarget .manage_form > div .Input {
+          width: 95%; } }
+      .ManageTarget .manage_form > div .Input label {
+        font-size: 1.2rem; }
+        @media screen and (min-width: 768px) {
+          .ManageTarget .manage_form > div .Input label {
+            font-size: 2rem; } }
+      .ManageTarget .manage_form > div .Input input {
+        padding-left: 3%;
+        height: 50%;
+        border: 1px solid #317094;
+        border-radius: 20px;
+        margin-top: 5px;
+        font-size: 1.2rem; }
+        .ManageTarget .manage_form > div .Input input:first-child {
+          margin-top: 15px; }
+        .ManageTarget .manage_form > div .Input input:focus {
+          outline: none; }
+        @media screen and (min-width: 768px) {
+          .ManageTarget .manage_form > div .Input input {
+            font-size: 1.8rem;
+            height: 60%; } }
+    .ManageTarget .manage_form > div .hash_con label {
+      font-size: 1.3rem; }
+    .ManageTarget .manage_form > div .submit_manage button {
+      font-size: 1.5rem; }
 
 .Logo {
   height: 100%;
@@ -3505,26 +3529,98 @@ button {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  position: relative; }
+  .Game .Nav #PopupInform {
+    position: absolute;
+    top: 120px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #af3939; }
+    @media screen and (min-width: 560px) {
+      .Game .Nav #PopupInform {
+        top: 10px; } }
+    @media screen and (min-width: 1024px) {
+      .Game .Nav #PopupInform h3 {
+        font-size: 3rem; } }
+    .Game .Nav #PopupInform ol {
+      padding: 3% 0; }
+      .Game .Nav #PopupInform ol li {
+        padding-top: 3%;
+        font-size: 1.3rem; }
+        .Game .Nav #PopupInform ol li:first-child {
+          padding: 0; }
+        @media screen and (min-width: 1024px) {
+          .Game .Nav #PopupInform ol li {
+            font-size: 2rem; } }
+    .Game .Nav #PopupInform button {
+      height: 40px; }
+      @media screen and (min-width: 1024px) {
+        .Game .Nav #PopupInform button {
+          font-size: 1.3rem; } }
   .Game .game_button {
-    width: 80%;
-    height: 10%; }
+    height: auto;
+    padding: 0 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    @media screen and (min-width: 560px) {
+      .Game .game_button {
+        padding: 0 12%;
+        align-items: flex-start;
+        justify-content: flex-start; } }
     .Game .game_button button {
-      width: 10%;
+      width: 30%;
+      margin: 3% 0;
+      min-height: 70px;
       height: auto; }
+      @media screen and (min-width: 560px) {
+        .Game .game_button button {
+          width: 15%;
+          margin: 0;
+          font-size: 1.1rem; } }
+      @media screen and (min-width: 1024px) {
+        .Game .game_button button {
+          font-size: 2rem; } }
       .Game .game_button button.reset_button {
         display: none; }
     .Game .game_button .instruct_text {
-      font-size: 1.8rem;
+      height: auto;
+      padding: 2% 0;
       line-height: 34px;
-      display: flex; }
-      .Game .game_button .instruct_text div {
-        width: 80%; }
+      display: flex;
+      flex-direction: column; }
+      @media screen and (min-width: 560px) {
+        .Game .game_button .instruct_text {
+          width: 85%;
+          padding: 0 3%; } }
+      .Game .game_button .instruct_text > div {
+        display: flex;
+        height: auto; }
+        .Game .game_button .instruct_text > div .allow {
+          display: none; }
+          @media screen and (min-width: 560px) {
+            .Game .game_button .instruct_text > div .allow {
+              display: block; } }
+        @media screen and (min-width: 1024px) {
+          .Game .game_button .instruct_text > div.scoreLevel {
+            padding: 3% 0; } }
+        .Game .game_button .instruct_text > div.scoreLevel p {
+          padding: 0 2%;
+          width: 25%; }
+          @media screen and (min-width: 1024px) {
+            .Game .game_button .instruct_text > div.scoreLevel p {
+              width: 15%; } }
+      .Game .game_button .instruct_text p {
+        font-size: 1.5rem; }
+        @media screen and (min-width: 560px) {
+          .Game .game_button .instruct_text p {
+            font-size: 1.35rem; } }
+        @media screen and (min-width: 1024px) {
+          .Game .game_button .instruct_text p {
+            font-size: 2rem; } }
   .Game .three {
-    height: 80%;
-    width: 80%;
-    margin: 10px auto;
-    border-radius: 30px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -3533,13 +3629,15 @@ button {
       display: block;
       position: absolute; }
     .Game .three .example {
-      width: 80%;
       display: none;
       position: absolute;
       flex-direction: column; }
       .Game .three .example button {
-        font-size: 3rem;
+        font-size: 1.35rem;
         height: 20%; }
+        @media screen and (min-width: 1024px) {
+          .Game .three .example button {
+            font-size: 2rem; } }
         .Game .three .example button.answer {
           order: 1; }
         .Game .three .example button.wrong0 {
@@ -3550,9 +3648,22 @@ button {
           order: 4; }
         .Game .three .example button.wrong3 {
           order: 5; }
+  .Game .fixed-popup {
+    position: absolute;
+    top: 43%;
+    font-size: 2rem;
+    background-color: #317094;
+    color: white;
+    border-radius: 20px;
+    padding: 20px; }
+    .Game .fixed-popup.hide {
+      display: none; }
+    .Game .fixed-popup.show {
+      display: block; }
 
 .Nav {
-  height: 10% !important; }
+  height: 10% !important;
+  z-index: 1; }
   .Nav .navi {
     width: 80%;
     height: 90%;
@@ -3569,7 +3680,13 @@ button {
     min-height: 50px; }
     .Nav .nav_button button {
       height: 100%; }
+  .Nav #PopupInform.hide {
+    display: none; }
+  .Nav #PopupInform.show {
+    display: block; }
 
+.Home .Nav .inform {
+  display: none; }
 .Home .game_box {
   height: auto;
   margin-top: 50%;
@@ -3592,6 +3709,9 @@ button {
   @media screen and (min-width: 560px) {
     .Home .After {
       width: 80%; } }
+  @media screen and (min-width: 1024px) {
+    .Home .After {
+      height: 100px; } }
   .Home .After button {
     font-size: 1.4rem; }
 

@@ -42,7 +42,7 @@ class Start extends React.Component {
 					<span>
 						<Button
 							id = 'manage_target'
-							content = 'manage target'
+							content = '타켓 관리'
 							onClick = {this.event_manage_target}
 						/>
 					</span>
