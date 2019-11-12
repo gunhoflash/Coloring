@@ -29,7 +29,7 @@ class Game extends React.Component {
 				console.log(response);
 				// level up
 				if (parseInt(response.level_up) > 0) {
-					alert('level ' + response.level + '!');
+					this.show_popup('#popup_levelup', 2000);
 				}
 				// set state: level, score, tryNumber
 				this.setState({
@@ -41,6 +41,15 @@ class Game extends React.Component {
 				alert(response.message);
 			}
 		}.bind(this));
+	}
+
+	show_popup(id, time) {
+		if ($(id).length == 0) return;
+		$(id).addClass('show').removeClass('hide');
+		setTimeout(function () {
+			if ($(id).length == 0) return;
+			$(id).addClass('hide').removeClass('show');
+		}, time);
 	}
 
 	componentDidMount() {
@@ -211,22 +220,10 @@ class Game extends React.Component {
 
 		function submit(e) {
 			if (e.target.className === "answer") {
-				show_popup_score();
+				this.show_popup('#popup_score', 1000);
 				this.request_add_score(1);
 			}
 			resetGame();
-		}
-
-		function show_popup_score() {
-			if ($('#popup_score').length == 0) return;
-			$('#popup_score').addClass('show').removeClass('hide');
-			setTimeout(function () {
-				hide_popup_score();
-			}, 1000);
-		}
-		function hide_popup_score() {
-			if ($('#popup_score').length == 0) return;
-			$('#popup_score').addClass('hide').removeClass('show');
 		}
 
 		function animate() {
@@ -305,6 +302,7 @@ class Game extends React.Component {
 					</div>
 				</div>
 				<span id="popup_score" className="fixed-popup hide">+1점</span>
+				<span id="popup_levelup" className="fixed-popup hide">레벨 업!</span>
 				<script src="build/three.js" type="module"></script>
 				<script src="src/loaders/FontLoader.js" type="module"></script>
 			</div>
