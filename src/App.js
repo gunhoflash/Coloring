@@ -14,6 +14,9 @@ class App extends React.Component {
 	};
 
 	set_user = (user_info, user_type) => {
+		if (user_type != 'target')
+		user_info.level = 1;
+		user_info.score = 4;
 		this.setState({
 			user_info: user_info,
 			user_type: user_type
@@ -67,13 +70,14 @@ class App extends React.Component {
 				jsondata = {
 					name: 'user' + String('0000' + Math.floor(Math.random() * 9999)).substr(-4),
 					level: 1,
-					score: 0,
+					score: 4,
 					hashed: 'unknown'
 				};
 				user_type = 'none';
 			} else {
 				user_type = 'target';
 			}
+			console.log('user type is ' + user_type);
 			this.setState({
 				react_url: react_url,
 				server_url: server_url,

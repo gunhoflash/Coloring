@@ -17,7 +17,7 @@ exports.createTarget = (host, target_number, name, age, sex, grade, relationship
 		hashed       : hashed.digest('hex'),
 		host_id      : host.id,
 		level        : 1,
-		score        : 0,
+		score        : 4,
 		relationship : relationship
 	};
 	
