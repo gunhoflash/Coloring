@@ -109,7 +109,7 @@ class ManageTarget extends React.Component {
 				<Bfore
 					goto = {this.props.goto.bind(this)}
 				/>
-				<div className="manage_form" style={{display:'flex'}}>
+				<div className="manage_form d-flex flex-column flex-md-row">
 					<div>
 						<p>Target 1</p>
 						<Input
@@ -167,10 +167,10 @@ class ManageTarget extends React.Component {
 							title = "target2_relationship"
 							type = "text"
 						/>
-						<p>
+						<div className="hash_con">
 							<label>hashed url</label>
 							<span id="target2_hashed"></span>
-						</p>
+						</div>
 						
 						<div className="submit_manage submit_btn">
 							<Button
