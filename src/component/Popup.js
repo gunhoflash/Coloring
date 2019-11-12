@@ -63,33 +63,17 @@ class Popup extends React.Component {
 				popUpRender = (
 					<div className="popup_box box_three" onClick={this.nextPopUp}>
 						<div className="pop_up_space row">
-							<div className="pop_img col-xs-12 col-sm-6">
-								<img src="/img/popup_ball2.png"></img>
-							</div>
-							<div className="pop_des col-xs-12 col-sm-6 row">
+							<div className="pop_des col-xs-12 col-sm-6 col-lg-9 row">
 								<p className="main_p">여기를 <strong>클릭</strong>하면<br/> 다음 게임을<br/>볼 수 있어요</p>
 							</div>
-						</div>
-					</div>
-				);
-				break;
-
-			case 3:
-				popUpRender = (
-					<div className="popup_box box_four" onClick={this.nextPopUp}>
-						<div className="pop_up_space row">
-							<div className="pop_des col-8">
-								
-							</div>
-							<div className="pop_img col-4">
+							<div className="pop_img col-xs-12 col-sm-6 col-lg-3">
 								<img src="/img/popup_ball2.png"></img>
 							</div>
 						</div>
 					</div>
 				);
 				break;
-
-			case 4:
+			case 3:
 				popUpRender = (
 					<div className="popup_box box_five">
 						<div className="pop_up_space row">

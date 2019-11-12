@@ -128,6 +128,12 @@
             .hash_con{
                 label{
                     font-size: 1.3rem;
+                    @media screen and (min-width:1024px) {
+                        font-size: 2rem;
+                    }
+                }
+                div{
+                    font-size:1.2rem;
                 }
             }
             .submit_manage{

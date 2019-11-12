@@ -3282,6 +3282,11 @@ button {
             height: 60%; } }
     .ManageTarget .manage_form > div .hash_con label {
       font-size: 1.3rem; }
+      @media screen and (min-width: 1024px) {
+        .ManageTarget .manage_form > div .hash_con label {
+          font-size: 2rem; } }
+    .ManageTarget .manage_form > div .hash_con div {
+      font-size: 1.2rem; }
     .ManageTarget .manage_form > div .submit_manage button {
       font-size: 1.5rem; }
 
@@ -3481,6 +3486,9 @@ button {
           color: #af3939; }
       .popUp .popup_box.box_two .pop_up_space .pop_des .sub_p {
         font-size: 1.8rem; }
+    .popUp .popup_box.box_three .pop_up_space div {
+      height: auto;
+      justify-content: flex-end; }
     .popUp .popup_box.box_three .pop_up_space .pop_des {
       padding: 0 0 0 2%;
       display: flex;

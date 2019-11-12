@@ -89,6 +89,10 @@
         }
         &.box_three{
             .pop_up_space{
+                div{
+                    height:auto;
+                    justify-content: flex-end;
+                }
                 .pop_des{
                     padding: 0 0 0 2%;
                     display: flex;
